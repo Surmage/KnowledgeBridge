@@ -8,8 +8,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <div id="test">
+            <h2>Look at model</h2>
+                <asp:Button ID="btnView" runat="server" Text="Model View" OnClick="btnView_Click" />
+            <br />
+            <br />
+                <h2>Go to submission page</h2>
+            <p>
+            <asp:Button ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" />
+                <br /><br />
+            </div>
+        
     </form>
 </body>
 </html>
