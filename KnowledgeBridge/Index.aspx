@@ -13,8 +13,7 @@
                 <asp:Button ID="btnView" runat="server" Text="Model View" OnClick="btnView_Click" />
             <br />
             <br />
-                <h2>Go to submission page</h2>
-            <p>
+            <h2>Go to submission page</h2>
             <asp:Button ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" />
                 <br /><br />
             </div>
