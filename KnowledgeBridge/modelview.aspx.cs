@@ -43,7 +43,7 @@ namespace KnowledgeBridge
 
             conn.Open();
 
-            using (SqlCommand cmd = new SqlCommand("SELECT data FROM modelsdb where Id=2", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT data FROM ModelInformation where Id=2", conn))
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
