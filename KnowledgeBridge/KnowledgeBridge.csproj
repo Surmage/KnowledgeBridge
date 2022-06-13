@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Index.aspx" />
     <Content Include="modelview.aspx" />
+    <Content Include="style.css" />
     <Content Include="submission.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
