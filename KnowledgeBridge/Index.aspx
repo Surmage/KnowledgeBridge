@@ -16,11 +16,7 @@
             <h2>Go to submission page</h2>
             <asp:Button ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" />
                 <br /><br />
-            </div>
-         
-
-            
-        
+            </div>          
     </form>
 </body>
 </html>
