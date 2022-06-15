@@ -11,27 +11,38 @@
 </head>
 <body>
 
-
-    <!-- Search bar? -->
     <form id="form1" runat="server">
-        <div id="test">
-            <h2>Look at model</h2>
-                <asp:Button ID="btnView" runat="server" Text="Model View" OnClick="btnView_Click" />
-            <br />
-            <br />
-            <h2>Go to submission page</h2>
-            <asp:Button ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" />
-                <br /><br />
+        <div class="background">
+            <div class="test" id="test">
+                <h2>Look at model</h2>
+                <asp:Button class="button" ID="btnView" runat="server" Text="Model View" OnClick="btnView_Click" />
+                <!-- <br /><br /> -->
+                <h2>Go to submission page</h2>
+                <asp:Button class="button" ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" />
+                <!-- <br /><br /> -->   
+                <!-- Search bar? -->
+                <input class="textbox" type="input">
+                <asp:Button class="button" runat="server" Text="Search" />
             </div>
+
+            <div class="wrapper">
+                <section>
+                    <div class="content">
+                        <p>Selection 1</p>
+                  
+                        
+                    </div>
+                </section>
+
+		        <section>Selection 2</section>
+		        <section>Selection 3</section>
+		        <section>Selection 4</section>
+		        <section>Selection 5</section>
+            </div>
+       </div>
+
     </form> 
 
-        <div class="wrapper">
-            <section>Selection 1</section>
-		    <section>Selection 2</section>
-		    <section>Selection 3</section>
-		    <section>Selection 4</section>
-		    <section>Selection 5</section>
-        </div>
 
 </body>
 </html>
