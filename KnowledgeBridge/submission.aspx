@@ -56,7 +56,7 @@
         <div class="subform">
 
 			<!-- inputs för inlämningen-->
-			<h1>Submition form</h1>
+			<h1>Submission form</h1>
             <!-- Company name (png/jpeg?) -->
             <label>Add an image your company name / logo [png or jpeg]</label>
             <input type="file" id="logo" name="logo" accept="image/png, image/jpeg"><br><br>
