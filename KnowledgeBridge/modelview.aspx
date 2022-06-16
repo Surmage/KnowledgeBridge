@@ -16,12 +16,33 @@
 <body>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <form id="form1" runat="server">
-         <model-viewer src="assets/Allosaurus.glb"
-            alt="A 3D model of an astronaut"
-            ar
-            auto-rotate
-            camera-controls>
-        </model-viewer>  
+        <div id="ImageShowcase" runat="server">           
+                 <model-viewer id="ModelShowcase" src="assets/Allosaurus.glb"
+                    alt="A 3D model of an astronaut"
+                    ar
+                    auto-rotate
+                    camera-controls>
+                </>     
+            <br />
+            <p><asp:FileUpload ID="fileUpload" runat="server" /></p>
+            
+            <%--<asp:ScriptManager runat="server" ID="sm">
+            </asp:ScriptManager>
+            <asp:updatepanel runat="server">
+            <ContentTemplate>--%>
+               
+            <%--</ContentTemplate>
+            </asp:updatepanel>--%>
+        </div>
+        <div>
+            <asp:Button ID="btnLoad" runat="server" Text="load dino" OnClick="btnLoad_Click" />
+            <asp:Button ID="btnUpload" runat="server" Text="upload dino?" OnClick="btnUpload_Click" />      
+            <asp:Button ID="btnLoadImg" runat="server" Text="load img" OnClick="btnLoadImg_Click" />        
+
+            <br />
+            <asp:Button ID="btnPrevious" runat="server" Text="Prev" OnClick="btnPrevious_Click"/>
+            <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"/>
+        </div>
     </form>
      
 </body>
