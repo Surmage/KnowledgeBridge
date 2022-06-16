@@ -36,7 +36,9 @@
         </div>
         <div>
             <asp:Button ID="btnLoad" runat="server" Text="load dino" OnClick="btnLoad_Click" />
-            <asp:Button ID="btnUpload" runat="server" Text="upload dino?" OnClick="btnUpload_Click" />              
+            <asp:Button ID="btnUpload" runat="server" Text="upload dino?" OnClick="btnUpload_Click" />      
+            <asp:Button ID="btnLoadImg" runat="server" Text="load img" OnClick="btnLoadImg_Click" />        
+
             <br />
             <asp:Button ID="btnPrevious" runat="server" Text="Prev" OnClick="btnPrevious_Click"/>
             <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"/>
