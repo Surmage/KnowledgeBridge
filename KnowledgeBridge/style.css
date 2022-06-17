@@ -114,8 +114,6 @@ p {
 }
 
 input[type=text] {
-    width: 90%;
-    height: 200px;
 }
 
 .button {
@@ -126,4 +124,10 @@ input[type=text] {
 
 .textbox {
     
+}
+.loginField {
+    margin: auto;
+    width: 80%;
+    height: 50%;
+    z-index:1;
 }
