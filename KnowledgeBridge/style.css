@@ -17,18 +17,9 @@
 }
 
 .background {
-    background-color: blue;
+ 
     
 }
-
-.test {
-    position: fixed;
-    display: flex;
-    background-color: blueviolet;
-    min-width: 100vw;
-    height:7%
-}
-
 
 .wrapper {
     display: flex;
@@ -40,9 +31,8 @@
     scroll-snap-align: start;
 }
 
-
 section {
-    height: 97vh;
+    height: 98vh;
     min-width: 100vw;
     display: flex;
     justify-content: center;
@@ -51,7 +41,6 @@ section {
     scroll-snap-align: start;
     z-index: 0;
 }
-
 
 .wrapper section:nth-child(1) {
     background-color: #f9ca24;
@@ -87,10 +76,9 @@ section {
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 20%;
-    margin-top: 4%;
+    margin-top: 5%;
     height: 75%;
 }
-
 
 h1 {
     color: blue;
@@ -109,21 +97,95 @@ h3 {
     margin: 3%
 }
 
+h4 {
+
+}
+
 p {
     margin: 3%
 }
 
-input[type=text] {
-    width: 90%;
-    height: 200px;
+
+.navbar {
+    width: 80px;
+    height: 100vh;
+    position: fixed;
+    background-color: blueviolet;
 }
 
-.button {
-    margin-right: 150px;
-    margin-left: 20px;
 
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
-.textbox {
-    
+.nav-item {
+    height: 100%;
+}
+
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 1em;
+    text-decoration: none;
+}
+
+a {
+    background: #2f3640;
+    color: white;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.search-box {
+    position: absolute;
+    left: 0%;
+    transform: translate(-0%, -50%);
+    background: #cd595a;
+    height: 40px;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.search-input {
+    outline: none;
+    border: none;
+    background: none;
+    width: 0;
+    padding: 0;
+    color: #fff;
+    float: left;
+    font-size: 16px;
+    transition: .3s;
+    line-height: 40px;
+}
+
+.search-btn {
+    color: #fff;
+    border-radius: 50px;
+    background: #cd595a;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+  width: 240px;
+  padding: 0 6px;
+}
+.search-box:hover > .search-input {
+  width: 240px;
+  padding: 0 6px;
+}
+.search-box:hover > .search-btn,
+.search-input:focus + .search-btn,
+.search-input:not(:placeholder-shown) + .search-btn {
+  background: #fff;
+  color: #cd595a;
 }
