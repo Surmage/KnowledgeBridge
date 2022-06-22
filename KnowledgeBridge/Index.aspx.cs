@@ -17,7 +17,8 @@ namespace KnowledgeBridge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            content2.Visible = false;
+            content3.Visible = false;
         }
 
         protected void btnView_Click(object sender, EventArgs e)
@@ -28,6 +29,12 @@ namespace KnowledgeBridge
         protected void btnGoToSubmit_Click(object sender, EventArgs e)
         {
             Response.Redirect("submission.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            content1.Visible = false;
+            content2.Visible = true;
         }
     }
 }

@@ -59,6 +59,7 @@
                             <a class="nav-link" href="#">
                                  <i class="fa-solid fa-arrow-right-to-bracket"></i>
                             </a>
+                <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
                         </li>
                     </ul>
                 </nav>
@@ -76,17 +77,25 @@
 
            <div class="wrapper">
                 <section>
-                    <div class="content">
+                    <div class="content" id="content1" runat="server">
                         <p>Selection 1</p>
-                  
-                        
-                    </div>
+                                                                 
+                    </div>  
+                    <div class="content" id="content2" runat="server">
+                        <p>Selection 2</p>
+                                                                 
+                    </div>  
+                    <div class="content" id="content3" runat="server">
+                        <p>Selection 3</p>
+                                                                 
+                    </div>  
+                    
                 </section>
 
-		        <section>Selection 2</section>
+		       <%-- <section>Selection 2</section>
 		        <section>Selection 3</section>
 		        <section>Selection 4</section>
-		        <section>Selection 5</section>
+		        <section>Selection 5</section>    --%>           
             </div>
        </div>
       </div>       

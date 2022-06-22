@@ -22,7 +22,17 @@
                     ar
                     auto-rotate
                     camera-controls>
-                </>     
+                </model-viewer>    
+            <script type="text/javascript">
+                const models = ['Allosaurus.glb', 'Dinosaur.glb'];
+                const toggleModel = document.querySelector('#ModelShowcase');
+                let j = 0;
+                setInterval(() => toggleModel.setAttribute('src', `assets/${models[j++ % 2]}`), 7000);
+                function myFunction() {
+                    alert("Baba");
+                }
+                
+            </script>
             <br />
             <p><asp:FileUpload ID="fileUpload" runat="server" /></p>
             
@@ -35,6 +45,7 @@
             </asp:updatepanel>--%>
         </div>
         <div>
+            <input type="button" onclick="myFunction()"/>
             <asp:Button ID="btnLoad" runat="server" Text="Load dino" OnClick="btnLoad_Click" />
             <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />      
             <asp:Button ID="btnLoadImg" runat="server" Text="Load img" OnClick="btnLoadImg_Click" />        

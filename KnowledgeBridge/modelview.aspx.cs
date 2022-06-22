@@ -16,6 +16,7 @@ namespace KnowledgeBridge
         int i;
         protected void Page_Load(object sender, EventArgs e)
         {
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "myFunction", "myFunction();", true);
             if (!IsPostBack)
             {
                 System.Diagnostics.Debug.WriteLine("loaded");
