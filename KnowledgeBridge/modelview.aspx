@@ -42,7 +42,14 @@
             <br />
             <asp:Button ID="btnPrevious" runat="server" Text="Prev" OnClick="btnPrevious_Click"/>
             <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"/>
+
         </div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            
+        </ContentTemplate>
+        </asp:UpdatePanel>
     </form>
      
 </body>

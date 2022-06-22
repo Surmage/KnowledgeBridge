@@ -58,7 +58,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <asp:Label ID="lblFel" runat="server"></asp:Label>
+                        <asp:Label ID="lblWrong" runat="server"></asp:Label>
                         <table style="width: 30%;" id="forgots" runat="server">
                             <tr>
                                 <td>Email</td>
@@ -101,7 +101,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td >Password</td>
+                                <td >Email</td>
                                 <td >
                                     <asp:TextBox ID="txtEmailRegister" runat="server" placeholder="Email" CssClass="txtbox"></asp:TextBox>
                                 </td>

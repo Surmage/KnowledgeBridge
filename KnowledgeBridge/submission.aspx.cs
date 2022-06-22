@@ -11,8 +11,17 @@ namespace KnowledgeBridge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] != null)
+            {
+                Response.Write(Session["user"].ToString());
+            }
         }
 
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Index.aspx", true);
+        }
     }
 }

@@ -10,9 +10,11 @@
 
 </head>
 <body>
-
-    <!-- Back to main (index) Button -->
-        <button type="button">Back</button>
+	<form id="form2" runat="server">
+		<!-- Back to main (index) Button -->        
+		<asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
+	
+    
     
 	<!-- Instructions on how and what to Submit -->
     <div class="instructions">
@@ -52,7 +54,7 @@
 			deserunt mollit anim id est laborum</p>
     </div>
 
-    <form id="form1" runat="server">
+    
         <div class="subform">
 
 			<!-- inputs för inlämningen-->
