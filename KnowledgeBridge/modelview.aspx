@@ -25,17 +25,12 @@
                 </model-viewer>    
             <script type="text/javascript">
                 const models = ['Allosaurus.glb', 'Dinosaur.glb'];
-                const toggleModel = document.querySelector('#ModelShowcase');
-                const lbl = document.getElementById("lbl");
+                const toggleModel = document.querySelector('#ModelShowcase');               
                 //let j = 0;
                 //setInterval(() => toggleModel.setAttribute('src', `assets/${models[j++ % 2]}`), 7000);
-                function myFunction() {
-                    alert("Baba");
-                }
                 function loadModel(data) {
                     const filepath = "data:model/gltf-binary;base64," + data;
-                    toggleModel.setAttribute('src', filepath);
-                    document.getElementById("lbl").innerText = data;
+                    toggleModel.setAttribute('src', filepath);                   
                 }
                 
             </script>
