@@ -65,6 +65,7 @@
                             <a class="nav-link" href="#">
                                  <i class="fa-solid fa-cube"></i>
                             </a>
+                <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
                         </li>
 
                    
@@ -102,6 +103,7 @@
           
              </div>
      <!-- </div> -->      
+
     </form> 
 
 

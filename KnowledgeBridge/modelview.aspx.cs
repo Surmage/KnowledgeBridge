@@ -15,7 +15,7 @@ namespace KnowledgeBridge
     {
         int i;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {            
             if (!IsPostBack)
             {
                 System.Diagnostics.Debug.WriteLine("loaded");
@@ -43,7 +43,7 @@ namespace KnowledgeBridge
 
             conn.Open();
 
-            using (SqlCommand cmd = new SqlCommand("SELECT data FROM ModelInformation where Id=2", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT data FROM ModelInformation where Id=5", conn))
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
@@ -53,7 +53,8 @@ namespace KnowledgeBridge
                     if (model != null)
                     {
                         string base64String = Convert.ToBase64String(model, 0, model.Length);
-                        ImageShowcase.InnerHtml = "<model-viewer src='model/gltf-binary;base64," + base64String + "'>"; //change to glb later
+                        string jsFunc = "loadModel('" + base64String + "')";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "loadModel", jsFunc, true);
                     }
                 }
             }
@@ -74,7 +75,7 @@ namespace KnowledgeBridge
 
                     if (model != null)
                     {
-                        string base64String = Convert.ToBase64String(model, 0, model.Length);
+                        string base64String = Convert.ToBase64String(model, 0, model.Length);                       
                         ImageShowcase.InnerHtml = "<img src = 'data:image/jpg;base64," + base64String + "' > ";
                     }
                 }
@@ -123,14 +124,27 @@ namespace KnowledgeBridge
                 BinaryReader br = new BinaryReader(fs);
                 Byte[] bytes = br.ReadBytes((Int32)fs.Length);
 
+                if(contenttype == "model/gltf-binary")
+                {
+                    string strQuery = "insert into ModelInformation(name, contentType, data) values (@Name, @ContentType, @Data)";
+                    SqlCommand cmd = new SqlCommand(strQuery);
+                    cmd.Parameters.AddWithValue("@Name", filename);
+                    cmd.Parameters.AddWithValue("@ContentType", contenttype);
+                    cmd.Parameters.AddWithValue("@Data", bytes);
+                    InsertUpdateData(cmd);
+                }
+                else
+                {
+                    string strQuery = "insert into Images(name, contentType, data) values (@Name, @ContentType, @Data)";
+                    SqlCommand cmd = new SqlCommand(strQuery);
+                    cmd.Parameters.AddWithValue("@Name", filename);
+                    cmd.Parameters.AddWithValue("@ContentType", contenttype);
+                    cmd.Parameters.AddWithValue("@Data", bytes);
+                    InsertUpdateData(cmd);
+                }
                 //Spara filen i databasen
                 //string strQuery = "insert into ModelInformation(name, contentType, data) values (@Name, @ContentType, @Data)";
-                string strQuery = "insert into Images(name, contentType, data) values (@Name, @ContentType, @Data)";
-                SqlCommand cmd = new SqlCommand(strQuery);
-                cmd.Parameters.AddWithValue("@Name", filename);
-                cmd.Parameters.AddWithValue("@ContentType", contenttype);
-                cmd.Parameters.AddWithValue("@Data", bytes);
-                InsertUpdateData(cmd);
+               
             }
 
         }
