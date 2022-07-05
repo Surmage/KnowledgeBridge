@@ -11,6 +11,7 @@ body {
     background-color: red;
 }
 
+/* INDEX */
 .swiper {
     width: 100vw;
     height: 100vh;
@@ -49,6 +50,7 @@ body {
 }
 
 .map {
+
     padding: 10px;
     width: 80%;
     height: 82%;
@@ -66,7 +68,7 @@ body {
 
 .swiper-button-prev {
     margin-left: 30%;
-    color: white;
+
 }
 
 .content {
@@ -82,11 +84,18 @@ body {
     margin-top: 10px;
     margin: auto;
     background-color: chartreuse;
+    object-fit: contain;
+}
+
+.logo {
+    min-width: 1rem ;
+    max-width: 200px;
+    object-fit: contain;
 }
 
 .content-img {
     width: 100%;
-    height: 60%;
+    height: 50%;
     margin-top: 10px;
     margin: auto;
     background-color: greenyellow;
@@ -94,64 +103,151 @@ body {
 
 .content-text {
     width: 100%;
-    height: 25%;
+    height: 35%;
     margin-top: 10px;
     margin: auto;
     background-color: green;
 }
 
+.text {
+    font-size: 15px;
+}
+
+
+/* POPUP WINDOW */
 
 .popup {
-    width: 65%;
-    height: 60%;
+    width: 270px;
+    height: 450px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     border-radius: 10px;
     background-color: white;
-    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    z-index: 3;
+}
+
+#login {
+    pointer-events: auto;
+
+}
+
+#signup {
+    pointer-events: none;
+    opacity: 0;
 }
 
 .button-box {
     width: 220px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #ff61241f;
-    border-radius: 30px;
+    border-color: green;
+    border-radius: 5px;
+    text-align: center;
+    background: #d4e1f8;
 }
 
-.btn {
+#btn {
     top: 0;
     left: 0;
     position: absolute;
     width: 110px;
     height: 100%;
-    background: linear-gradient(to right, #ff105f,#ffad06);
-    border-radius: 30px;
+    background: #6495ed;
+    border-radius: 5px;
     transition: .5s;
-}
-
-.toggle-btn {
-    padding: 10px 30px;
-    cursor:pointer;
-    background: transparent;
-    border: 0;
-    outline: none;
-    position: relative;
-   
     
 }
 
+.toggle-btn {
+    padding: 10px 28px;
+    cursor: pointer;
+    background: transparent;
+    text-transform: uppercase;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
 .input-group {
-    margin: auto;
+    position: absolute;
+    display: block;
+    
+  
 }
 
-.close-btn
-
-.label {
+.h2-input {
     color: black;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 8px;
+    font-size: 30px;
 }
+
+.text-input {
+    width: 80%;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+label span {
+    color: black;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.remember-btn {
+    margin-left: 0px;
+    height: 10px;
+}
+
+.remember {
+    margin-left: 4px;
+    font-size: 14px;
+
+}
+
+.forgot {
+    color: black;
+    display: block;
+    margin: 20px;
+    margin-left: 30px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.submit {
+    width: 80%;
+    padding: 18px;
+    margin-top: 15px;
+    margin-left: 29px;
+    margin-right: 25px;
+    color: white;
+    background: cornflowerblue;
+    text-transform: uppercase;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+}
+
+.close-btn {
+    color: black;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+
+/* SUBMITION PAGE */
 
 .background {
     margin: 0;
@@ -186,7 +282,34 @@ main {
     border-radius: 20px;
 }
 
+/* MODEL VIEWER */
 
+.model-viewer {
+    height: 80vh;
+    width: 80vw;
+    background-color: blue;
+}
+
+.horizontal-navbar {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    background-color: blueviolet;
+    
+}
+
+.load-model-btn {
+}
+
+.load-img-btn {
+
+}
+
+.upload-file-btn {
+
+}
+
+/* GENERAL */
 h1 {
     font-size: 45px;
     font-family: 'Lexend Deca', sans-serif;
@@ -227,7 +350,7 @@ label {
     color: white;
 }
 
-input[type=file] {
+.upload-btn {
     background-color: #2f3640;
     border: 1px solid #2f3640;
     padding: 5px;
@@ -238,7 +361,7 @@ input[type=file] {
     width: 96%
 }
 
-    input[type=file]::-webkit-file-upload-button {
+.upload-btn::-webkit-file-upload-button {
         border: 5px solid white;
         border-radius: 20px;
         background-color: #2f3640;
@@ -246,15 +369,15 @@ input[type=file] {
         color: white;
         font-family: 'Commissioner', sans-serif;
         font-size: 14px;
-    }
+}
 
-input[type=submit] {
+.submit-form-btn {
     padding: 19px 39px 18px 39px;
     color: #FFF;
     background-color: #4bc970;
     font-size: 18px;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 10px;
     width: 100%;
     border: 1px solid #3ac162;
     border-width: 1px 1px 3px;
@@ -265,7 +388,7 @@ input[type=submit] {
 textarea {
     background-color: white;
     border: 2px solid white;
-    border-radius: 15px;
+    border-radius: 10px;
     width: 99%;
     height: 150px;
     font-family: 'Commissioner', sans-serif;
@@ -296,6 +419,8 @@ textarea {
         background-color: white;
         color: #2f3640;
 }
+
+/* MENU BAR */
 
 .navbar {
     width: 60px;
@@ -335,12 +460,12 @@ a {
     border-radius: 40px;
 }
 
-    .nav-link:hover {
+.nav-link:hover {
         color: #2f3640;
         background: white;
         border-radius: 40px;
         background-size: 50% auto;
-    }
+}
 
 
 /*i:hover {
@@ -375,9 +500,9 @@ a {
     line-height: 40px;
 }
 
-    .search-input::placeholder {
+.search-input::placeholder {
         color: white;
-    }
+}
 
 /* icon */
 .search-btn {
@@ -410,3 +535,4 @@ a {
     background: #fff;
     color: #2f3640;
 }
+

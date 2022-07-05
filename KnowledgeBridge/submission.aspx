@@ -40,7 +40,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
@@ -107,16 +107,16 @@
                 <h2>Submit the content you want to display here</h2>
                 <!-- Company name (png/jpeg?) -->
                 <label>Add an image your company name / logo [png or jpeg]</label>
-                <input type="file" id="logo" name="logo" accept="image/png, image/jpeg"/>
+                <input class="upload-btn" type="file" id="logo" name="logo" accept="image/png, image/jpeg"/>
                 <br />
                 <br />
                 <!-- 3D mesh (glb?) -->
                 <label>Add a 3D model</label>
-                <input type="file" class="sub-btn" id="mesh" name="mesh" accept="glb"/>
+                <input class="upload-btn" type="file" id="mesh" name="mesh" accept="glb"/>
                 <br />
                 <br />
                 <label>Add any pictures you want to show [max ?]</label>
-                <input type="file" id="pictures" name="pictures" multiple/>
+                <input class="upload-btn" type="file" id="pictures" name="pictures" multiple/>
                 <br />
                 <br />
                 <!-- Text information to be displayed -->
@@ -127,9 +127,98 @@
            <!-- <input type="text" class="add-text" id="info" name="info" />--> 
                 <br />
                 <br />
-                <input type="submit"/>
+                <input class="submit-form-btn" type="submit"/>
 
             </div>
+
+            <!-- LOGIN POPUP WINDOW -->
+        <div class="popup" id="popup">
+              
+                <a class="close-btn" id="exit" onclick="exit()"><i class="fa-solid fa-xmark"></i></a>
+
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                    <button type="button" class="toggle-btn" onclick="signup()">Sign up</button>
+                </div>
+
+                    <div id="login" class="input-group">
+
+                        <h2 class="h2-input">LOGIN</h2>
+                        
+                        <label for="email"><span>Email</span></label>
+                        <input class="text-input" type="text" placeholder="Email" />
+                        
+                        <label for="password"><span>Password</span></label>
+                        <input class="text-input" type="text" placeholder="Password" />
+                        
+                        <label><span class="remember">Remember me</span></label>
+                        <input class="remember-btn" type="checkbox" />
+                        
+                        <a class="forgot" href="#">Forgot Password</a>
+                        
+                        <button class="submit" type="submit">Login</button>
+
+                    </div>
+                    
+                
+                    <div id="signup" class="input-group">
+
+                        <h2 class="h2-input">SIGN UP</h2>
+                        
+                        <label for="email"><span>Email</span></label>
+                        <input class="text-input" type="text" placeholder="Email"/>
+                        
+                        <label for="password"><span>Password</span></label>
+                        <input class="text-input" type="text" placeholder="Enter a Password" />
+                        
+                        <label for="password"><span>Password</span></label>
+                        <input class="text-input" type="text" placeholder="Enter Password again" />
+                        <br />
+                        
+                        <button class="submit" type="submit">Sign up</button>
+
+                    </div>
+            </div>
+
+        <script>
+
+            document.getElementById('login-btn').addEventListener('click', function () {
+                document.querySelector('.popup').style.opacity = '1';
+                document.getElementById("popup").style.pointerEvents = "auto";
+               
+            });
+
+            document.getElementById('exit').addEventListener('click', function () {
+                document.querySelector('.popup').style.opacity = '0';
+                document.getElementById("popup").style.pointerEvents = "none";
+                
+            });
+
+            var x = document.getElementById("login");
+            var y = document.getElementById("signup");
+            var z = document.getElementById("btn");
+
+
+            function signup() {
+
+                x.style.opacity = "0";
+                x.style.pointerEvents = "none";
+                y.style.opacity = "1";
+                y.style.pointerEvents = "auto";
+                z.style.left = "110px";
+            }
+
+            function login() {
+
+                x.style.opacity = "1";
+                x.style.pointerEvents = "auto";
+                y.style.pointerEvents = "none";
+                y.style.opacity = "0";
+                z.style.left = "0px";
+            }
+        </script>
+
         </form>
     </main>
 </body>
