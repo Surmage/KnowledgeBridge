@@ -57,13 +57,20 @@
 	<!-- Instructions on how and what to Submit -->
         <div class="instructions">
 
-            <h1>How to submit material to Knowladge Bridge</h1>
+            <h1>How to submit material to Knowledge Bridge</h1>
             <h2>Here is a list with all the information regarding file types, size, information text etc.</h2>
-            <h2>Submition form below.</h2>
+            <h2>Submission form below.</h2>
                 <a class="to-sub" href="#subform">
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
-		    <h3>Conpany Name / Logo</h3>
+		    <h3>Company Name / Logo</h3>
+			     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+			    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+			    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+			    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+			    deserunt mollit anim id est laborum</p>
+            <h3>Project Name</h3>
 			     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 			    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 			    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
@@ -102,32 +109,47 @@
         <form id="form2" runat="server">
             <div class="subform" id="subform">
 
-			    <!-- inputs för inlämningen-->
+			    <!-- inputs for submission-->
 			    <h1>Submission form</h1>
                 <h2>Submit the content you want to display here</h2>
-                <!-- Company name (png/jpeg?) -->
-                <label>Add an image your company name / logo [png or jpeg]</label>
-                <input type="file" id="logo" name="logo" accept="image/png, image/jpeg"/>
+                <!-- Company name (text) -->
+                <label>Write the name of your company</label>
+                <input type="text" id="company" placeholder="Company name" runat="server">
+                <br />
+                <br />
+                <!-- Company name image(png/jpeg?) -->
+                <label>Add an image of your company name / logo [png or jpeg]</label>
+                <input type="file" id="logo" name="logo" accept="image/png, image/jpeg" runat="server"/>
+                <br />
+                <br />
+                <!-- Project name (text) -->
+                <label>Write the name of the project</label>
+                <br />
+                <br />
+                <input type="text" id="project" placeholder="Project name" runat="server">
                 <br />
                 <br />
                 <!-- 3D mesh (glb?) -->
                 <label>Add a 3D model</label>
-                <input type="file" class="sub-btn" id="mesh" name="mesh" accept="glb"/>
+                <%--<input type="file" class="sub-btn" id="mesh" name="mesh" accept="glb" runat="server"/>--%>
+                <asp:FileUpload ID="meshes" AllowMultiple runat="server" />
                 <br />
                 <br />
                 <label>Add any pictures you want to show [max ?]</label>
-                <input type="file" id="pictures" name="pictures" multiple/>
+                <%--<input type="file" id="pictures" name="pictures" multiple runat="server"/>--%>
+                <asp:FileUpload ID="pictures" AllowMultiple runat="server" />
                 <br />
                 <br />
                 <!-- Text information to be displayed -->
-                <label>Add any additional information about your compamy or project that you would like people to know</label>
+                <label>Add any additional information about your company or project that you would like people to know</label>
                 <br />
                 <br />
-                <textarea class="add-text" placeholder="Add information here!"></textarea>
+                <textarea class="add-text" id="desc" placeholder="Add information here!" runat="server"></textarea>
            <!-- <input type="text" class="add-text" id="info" name="info" />--> 
                 <br />
                 <br />
-                <input type="submit"/>
+                <%--<input type="submit" runat="server" onserverclick="btnUpload_Click" allowmultiple="true"/>--%>
+                <asp:Button ID="submit" runat="server" Text="Submit" OnClick="btnUpload_Click"/>
 
             </div>
         </form>

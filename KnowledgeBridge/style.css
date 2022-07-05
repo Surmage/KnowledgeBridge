@@ -1,4 +1,4 @@
-﻿﻿html,
+﻿html,
 body {
     position: relative;
     height: 100%;
@@ -86,8 +86,10 @@ body {
     width: 100%;
     height: 60%;
     margin-top: 10px;
-    margin: auto;
     background-color: greenyellow;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .content-text {

@@ -126,11 +126,12 @@ namespace KnowledgeBridge
 
                 if(contenttype == "model/gltf-binary")
                 {
-                    string strQuery = "insert into ModelInformation(name, contentType, data) values (@Name, @ContentType, @Data)";
+                    string strQuery = "insert into ModelInformation(name, contentType, data, projectName) values (@Name, @ContentType, @Data, @Project)";
                     SqlCommand cmd = new SqlCommand(strQuery);
                     cmd.Parameters.AddWithValue("@Name", filename);
                     cmd.Parameters.AddWithValue("@ContentType", contenttype);
                     cmd.Parameters.AddWithValue("@Data", bytes);
+                    cmd.Parameters.AddWithValue("@Project", "test");
                     InsertUpdateData(cmd);
                 }
                 else
