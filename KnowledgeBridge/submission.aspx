@@ -40,7 +40,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="Index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
@@ -119,7 +119,8 @@
                 <br />
                 <!-- Company name image(png/jpeg?) -->
                 <label>Add an image of your company name / logo [png or jpeg]</label>
-                <input type="file" id="logo" name="logo" accept="image/png, image/jpeg" runat="server"/>
+                <br />
+                <asp:FileUpload ID="logo" class="upload-btn" runat="server" />               
                 <br />
                 <br />
                 <!-- Project name (text) -->
@@ -132,12 +133,12 @@
                 <!-- 3D mesh (glb?) -->
                 <label>Add a 3D model</label>
                 <%--<input type="file" class="sub-btn" id="mesh" name="mesh" accept="glb" runat="server"/>--%>
-                <asp:FileUpload ID="meshes" AllowMultiple runat="server" />
+                <asp:FileUpload ID="meshes" class="upload-btn" AllowMultiple runat="server" />
                 <br />
                 <br />
                 <label>Add any pictures you want to show [max ?]</label>
                 <%--<input type="file" id="pictures" name="pictures" multiple runat="server"/>--%>
-                <asp:FileUpload ID="pictures" AllowMultiple runat="server" />
+                <asp:FileUpload ID="pictures" class="upload-btn" AllowMultiple runat="server" />
                 <br />
                 <br />
                 <!-- Text information to be displayed -->

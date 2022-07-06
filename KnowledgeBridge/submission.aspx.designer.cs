@@ -39,7 +39,7 @@ namespace KnowledgeBridge
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile logo;
+        protected global::System.Web.UI.WebControls.FileUpload logo;
 
         /// <summary>
         /// project control.
