@@ -29,8 +29,29 @@ namespace KnowledgeBridge
             Response.Redirect("submission.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnLoad_Click(object sender, EventArgs e)
         {
+            string search = searchBox.Value;
+            System.Diagnostics.Debug.WriteLine(search);
+            String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+            SqlConnection conn = new SqlConnection(strConnString);
+
+            conn.Open();
+            string query = "SELECT * FROM ModelInformation WHERE projectName=@search";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@search", search);
+            System.Diagnostics.Debug.WriteLine(query);
+            using (cmd)               
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                int results = 0;
+                while (reader.Read())
+                {
+                    results++;
+                }
+                
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Found " + results + " results')", true);
+            }
         }
     }
 }

@@ -26,8 +26,8 @@
                 <!-- MAIN MENU -->
                 <!-- SEARCH BAR -->
                <div class="search-box"> 
-                   <input type="text" class="search-input" placeholder="Type to search!" />
-                      <a class="search-btn" href="#">
+                   <input type="text" id="searchBox" runat="server" class="search-input" placeholder="Type to search!" />
+                      <a class="search-btn" href="#" runat="server" onserverclick="btnLoad_Click">
                          <i class="fa-solid fa-magnifying-glass"></i>
                       </a>
                </div>
