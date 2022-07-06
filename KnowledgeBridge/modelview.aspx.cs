@@ -13,27 +13,23 @@ namespace KnowledgeBridge
 {
     public partial class modelview : System.Web.UI.Page
     {
-        int i;
         protected void Page_Load(object sender, EventArgs e)
         {            
             if (!IsPostBack)
             {
+                btnLoad_Click(this, e);
                 System.Diagnostics.Debug.WriteLine("loaded");
-                i = 0;
             }
            
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            i++;
-            System.Diagnostics.Debug.WriteLine(i);
         }
 
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
-            i--;
-            System.Diagnostics.Debug.WriteLine(i);
+            Response.Redirect("Index.aspx?Int=" + 55);
         }
 
         protected void btnLoad_Click(object sender, EventArgs e)
@@ -42,19 +38,20 @@ namespace KnowledgeBridge
             SqlConnection conn = new SqlConnection(strConnString);
 
             conn.Open();
-
-            using (SqlCommand cmd = new SqlCommand("SELECT data FROM ModelInformation where Id=5", conn))
+            string query = "SELECT * FROM ModelInformation where Id=5";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
                 {
                     byte[] model = reader["data"] as byte[] ?? null;
+                    string type = reader.GetString(reader.GetOrdinal("contentType"));
 
                     if (model != null)
                     {
-                        string base64String = Convert.ToBase64String(model, 0, model.Length);
-                        string jsFunc = "loadModel('" + base64String + "')";
-                        ScriptManager.RegisterStartupScript(this, GetType(), "loadModel", jsFunc, true);
+                        string base64data = Convert.ToBase64String(model, 0, model.Length);
+                        string jsFunc = "loadData('" + type + "', '" + base64data + "')";
+                        ScriptManager.RegisterStartupScript(this, GetType(), "loadData", jsFunc, true);
                     }
                 }
             }
@@ -72,11 +69,12 @@ namespace KnowledgeBridge
                 if (reader.Read())
                 {
                     byte[] model = reader["data"] as byte[] ?? null;
+                    string type = reader.GetString(reader.GetOrdinal("contentType"));
 
                     if (model != null)
                     {
-                        string base64String = Convert.ToBase64String(model, 0, model.Length);                       
-                        ImageShowcase.InnerHtml = "<img src = 'data:image/jpg;base64," + base64String + "' > ";
+                        string base64String = Convert.ToBase64String(model, 0, model.Length);
+                        ImageShowcase.InnerHtml = "<img src = 'data:" + type + ";base64," + base64String + "'> ";
                     }
                 }
             }

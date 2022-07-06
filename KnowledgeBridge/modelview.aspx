@@ -79,7 +79,7 @@
         <div class="swiper mySwiper">
                           <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <model-viewer class="model-viewer" id="ModelShowcase" src="assets/Allosaurus.glb"
+                                    <model-viewer class="model-viewer" id="ModelShowcase" src=""
                                         alt="A 3D model of an astronaut"
                                         ar
                                         auto-rotate
@@ -104,7 +104,7 @@
 
 
             <script type="text/javascript">
-                const models = ['Allosaurus.glb', 'Dinosaur.glb'];
+                //const models = ['Allosaurus.glb', 'Dinosaur.glb'];
                 const toggleModel = document.querySelector('#ModelShowcase');               
                 //let j = 0;
                 //setInterval(() => toggleModel.setAttribute('src', `assets/${models[j++ % 2]}`), 7000);
@@ -112,6 +112,10 @@
                     const filepath = "data:model/gltf-binary;base64," + data;
                     toggleModel.setAttribute('src', filepath);                   
                 }
+                function loadData(filetype, data) {
+                    const filepath = "data:" + filetype + ";base64," + data;
+                    toggleModel.setAttribute('src', filepath);
+                }               
                 
             </script>
 

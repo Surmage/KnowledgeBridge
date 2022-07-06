@@ -21,7 +21,7 @@ namespace KnowledgeBridge
 
         protected void btnView_Click(object sender, EventArgs e)
         {
-            Response.Redirect("modelview.aspx");
+            Response.Redirect("modelview.aspx" + "55");
         }
 
         protected void btnGoToSubmit_Click(object sender, EventArgs e)
