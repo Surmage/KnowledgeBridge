@@ -27,6 +27,10 @@ namespace KnowledgeBridge
             }
             if (!IsPostBack)
             {
+                if(i == null)
+                {
+                    i = "2";
+                }
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "cloneStuff", "cloneStuff()", true);
                 btnLoad_Click(i);
                 System.Diagnostics.Debug.WriteLine("loaded");
