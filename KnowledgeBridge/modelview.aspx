@@ -57,8 +57,8 @@
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li class="nav-item" id="toSubmission" runat="server">
+                            <a class="nav-link" href="Submission.aspx">
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
@@ -86,7 +86,7 @@
                                         camera-controls>
                                     </model-viewer>
                                 </div>
-                                <div class="swiper-slide">Slide 2</div>
+                                <div id="testSwipe" class="swiper-slide">Slide 2</div>
                                 <div class="swiper-slide">Slide 3</div>
                                 <div class="swiper-slide">Slide 4</div>
                                 <div class="swiper-slide">Slide 5</div>
@@ -105,7 +105,8 @@
 
             <script type="text/javascript">
                 //const models = ['Allosaurus.glb', 'Dinosaur.glb'];
-                const toggleModel = document.querySelector('#ModelShowcase');               
+                const slide2 = document.getElementById("testSwipe");
+                const toggleModel = document.querySelector('#ModelShowcase');
                 //let j = 0;
                 //setInterval(() => toggleModel.setAttribute('src', `assets/${models[j++ % 2]}`), 7000);
                 function loadModel(data) {
@@ -115,19 +116,19 @@
                 function loadData(filetype, data) {
                     const filepath = "data:" + filetype + ";base64," + data;
                     toggleModel.setAttribute('src', filepath);
-                }               
+                }
+                function cloneStuff() {
+                    alert("oh no");
+                    //const clone = toggleModel.cloneNode(true);
+                    //clone.id = "foo2";
+                    //slide2.appendChild(clone);
+                }
                 
             </script>
 
          <!--   <p><asp:FileUpload ID="fileUpload" runat="server" /></p> -->
             
-            <%--<asp:ScriptManager runat="server" ID="sm">
-            </asp:ScriptManager>
-            <asp:updatepanel runat="server">
-            <ContentTemplate>--%>
-               
-            <%--</ContentTemplate>
-            </asp:updatepanel>--%>
+          
         </div>
 
         <!--
@@ -136,7 +137,7 @@
                     A
                 </p>
                 <input type="button" onclick="myFunction()"/>
-                <asp:Button CssClass="load-model-btn" ID="btnLoad" runat="server" Text="Load dino" OnClick="btnLoad_Click" />
+                
                 <asp:Button CssClass="upload-file-btn" ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />  
                 <asp:Button CssClass="load-img-btn" ID="btnLoadImg" runat="server" Text="Load img" OnClick="btnLoadImg_Click" />  
                 <asp:Button CssClass="prev-btn" ID="btnPrevious" runat="server" Text="Prev" OnClick="btnPrevious_Click"/>

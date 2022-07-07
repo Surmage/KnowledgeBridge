@@ -18,11 +18,22 @@ namespace KnowledgeBridge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] != null)
+            {
+                Response.Write(Session["user"].ToString());
+                toSubmission.Visible = true;
+            }
+            else
+            {
+                toSubmission.Visible = false;
+            }
         }
 
         protected void btnView_Click(object sender, EventArgs e)
         {
-            Response.Redirect("modelview.aspx" + "55");
+            Button btn = (Button)sender;
+            Response.Redirect("modelview.aspx?Num=" + btn.CommandArgument.ToString());
+            //Response.Redirect("modelview.aspx?Num=" + 2);
         }
 
         protected void btnGoToSubmit_Click(object sender, EventArgs e)
@@ -66,31 +77,31 @@ namespace KnowledgeBridge
             {
                 conn.Open();
                 //Skapar DataAdapter
-                SqlDataAdapter da = new SqlDataAdapter("Select * From Users WHERE username=@u AND password=@p", conn);
+                SqlDataAdapter da = new SqlDataAdapter("Select * From Users WHERE email=@e AND password=@p", conn);
                 //Skapar DataTable                      
-                da.SelectCommand.Parameters.AddWithValue("@u", txtUserLogin.Text);
+                da.SelectCommand.Parameters.AddWithValue("@e", txtEmailLogin.Text);
                 da.SelectCommand.Parameters.AddWithValue("@p", kpass);
                 try
                 {
                     DataTable dt = new DataTable();
                     //DataAdapter fyller DataTable med info
                     da.Fill(dt);
-                    Response.Write(dt.Rows[0][2].ToString());
-                    Response.Write("\n" + kpass);                 
+                    //Response.Write(dt.Rows[0][2].ToString());
+                    //Response.Write("\n" + kpass);                 
 
                     if (dt.Rows.Count > 0)
                     {
                         Session["user"] = dt.Rows[0][1];
-                        Response.Redirect("submission.aspx");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Logged in!')", true);
+                        showSubmissionButton();
                     }
                     else
                     {
                         System.Diagnostics.Debug.WriteLine("Wrong pass or user");
-                        lblWrong.Text = "Lösenord eller användarnamn är fel.";
-                        lblWrong.ForeColor = System.Drawing.Color.Red;
-                        if (txtUserLogin.Text == "")
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Email or password wrong')", true);
+                        if (txtEmailLogin.Text == "")
                         {
-                            txtUserLogin.BackColor = Color.Red;
+                            txtEmailLogin.BackColor = Color.Red;
                         }
                         if (txtPassLogin.Text == "")
                         {
@@ -104,28 +115,13 @@ namespace KnowledgeBridge
                 }
             }
         }
-
-        protected void btnOpenLogin_Click(object sender, EventArgs e)
+        protected void showSubmissionButton()
         {
-            login.Visible = true;
-            forgots.Visible = false;
-            register.Visible = false;
-           
+            toSubmission.Visible = true;
         }
-
-        protected void btnForgot_Click(object sender, EventArgs e)
-        {
-            forgots.Visible = true;
-        }
-
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             string wrong = "";
-
-            Regex regUser = new Regex("^[A-ZÅÄÖ]{1}[[a-zåäö]{1,20}$");
-            string user = txtUserRegister.Text;
-            bool resultUser = regUser.IsMatch(user);
-            wrong += resultUser.ToString();
 
             var hasNumber = new Regex(@"[0-9]+");
             var hasUpperChar = new Regex(@"[A-Z]+");
@@ -133,37 +129,36 @@ namespace KnowledgeBridge
             Crypt cr = new Crypt();
             string pass = txtPassRegister.Text;
             bool resultPass = hasNumber.IsMatch(pass) && hasUpperChar.IsMatch(pass) && hasMinimum8Chars.IsMatch(pass);
-            string kpass = cr.Encrypt(txtPassRegister.Text);
             wrong += resultPass.ToString();
+
+            string pass2 = txtPassRegister2.Text;
+            bool resultPass2 = hasNumber.IsMatch(pass2) && hasUpperChar.IsMatch(pass2) && hasMinimum8Chars.IsMatch(pass2);
+            wrong += resultPass2.ToString();
+
+            bool resultMatch = pass == pass2;
 
             Regex regEmail = new Regex(@"(?:[a-zA-Z0-9-]+(.+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z])?\.)+[a-z](?:[a-z])?)");
             string email = txtEmailRegister.Text;
             bool resultEmail = regEmail.IsMatch(email);
             wrong += resultEmail.ToString();
 
-            if (resultUser && resultPass && resultEmail)
+            if (resultPass && resultPass2 && resultMatch && resultEmail)
             {
+                string kpass = cr.Encrypt(txtPassRegister.Text);
                 //Set the contenttype based on File Extension
 
                 //Spara filen i databasen
                 //string strQuery = "insert into ModelInformation(name, contentType, data) values (@Name, @ContentType, @Data)";
-                string strQuery = "insert into Users(username, password, email) values (@User, @KPass, @Email)";
+                string strQuery = "insert into Users(email, password) values (@Email, @KPass)";
                 SqlCommand cmd = new SqlCommand(strQuery);
-                cmd.Parameters.AddWithValue("@User", user);
-                cmd.Parameters.AddWithValue("@KPass", kpass);
                 cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@KPass", kpass);              
                 InsertUpdateData(cmd);
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine(wrong);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(" + wrong + ")", true);
             }    
-        }
-
-        protected void btnOpenRegister_Click(object sender, EventArgs e)
-        {
-            login.Visible = false;
-            register.Visible = true;
         }
         private Boolean InsertUpdateData(SqlCommand cmd)
         {

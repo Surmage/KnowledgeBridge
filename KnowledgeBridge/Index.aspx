@@ -17,11 +17,7 @@
 
     <form id="form1" runat="server">
           <div class="test" id="test">      
-                <!--<h4>Look at model</h4>-->
-                <!--<asp:Button class="button" ID="btnView" runat="server" Text="Model View" OnClick="btnView_Click" />-->
-                <!-- <br /><br /> -->
-                <!--<h4>Go to submission page</h4>-->
-                <!--<asp:Button class="button" ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" /> -->
+               
   
                 <!-- MAIN MENU -->
                 <!-- SEARCH BAR -->
@@ -44,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.aspx">
+                            <a class="nav-link" href="Index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
@@ -53,8 +49,8 @@
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li class="nav-item" id="toSubmission" runat="server">
+                            <a class="nav-link" href="Submission.aspx">
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
@@ -82,7 +78,8 @@
                                 <div class="swiper-slide">
                                     <div class="map">
                                         <image src="\assets\map_v1.png" width="100%" height="100%"></image>
-                                    </div>
+                                    </div>                                   
+                                    <asp:Button class="button" runat="server" Text="View" CommandArgument='2' CommandName="btn1Click" OnClick="btnView_Click" />
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="content">
@@ -100,7 +97,7 @@
 			                                    deserunt mollit anim id est laborum
                                             </p>
                                         </div>
-
+                                        <asp:Button class="button" runat="server" Text="View" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
                                     </div>
                                 </div>
                                 <div class="swiper-slide">Slide 3</div>
@@ -135,17 +132,14 @@
                         <h2 class="h2-input">LOGIN</h2>
                         
                         <label for="email"><span>Email</span></label>
-                        <input class="text-input" type="text" placeholder="Email" />
-                        
-                        <label for="password"><span>Password</span></label>
-                        <input class="text-input" type="text" placeholder="Password" />
-                        
+                         <asp:TextBox ID="txtEmailLogin" runat="server" placeholder="Username" AutoCompleteType="Disabled" CssClass="text-input"></asp:TextBox>
+                        <label for="password"><span>Password</span></label>                        
+                        <asp:TextBox ID="txtPassLogin" runat="server" placeholder="Password" TextMode="Password" CssClass="text-input"></asp:TextBox>
                         <label><span class="remember">Remember me</span></label>
                         <input class="remember-btn" type="checkbox" />
                         
                         <a class="forgot" href="#">Forgot Password?</a>
-                        
-                        <button class="submit" type="submit">Login</button>
+                        <asp:Button ID="btnLogin" CssClass="submit" runat="server" OnClick="btnLogin_Click" Text="Log in" />
 
                     </div>
                     
@@ -155,16 +149,16 @@
                         <h2 class="h2-input">SIGN UP</h2>
                         
                         <label for="email"><span>Email</span></label>
-                        <input class="text-input" type="text" placeholder="Email"/>
+                        <asp:TextBox ID="txtEmailRegister" runat="server" placeholder="Username" AutoCompleteType="Disabled" CssClass="text-input"></asp:TextBox>
                         
                         <label for="password"><span>Password</span></label>
-                        <input class="text-input" type="text" placeholder="Enter a Password" />
+                        <asp:TextBox ID="txtPassRegister" runat="server" placeholder="Password" TextMode="Password" CssClass="text-input"></asp:TextBox>
                         
                         <label for="password"><span>Password</span></label>
-                        <input class="text-input" type="text" placeholder="Enter Password again" />
+                        <asp:TextBox ID="txtPassRegister2" runat="server" placeholder="Password" TextMode="Password" CssClass="text-input"></asp:TextBox>
                         <br />
                         
-                        <button class="submit" type="submit">Sign up</button>
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" CssClass="submit" />
 
                     </div>
             </div>

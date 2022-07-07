@@ -14,13 +14,24 @@ namespace KnowledgeBridge
     public partial class modelview : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
+            string i = Request.QueryString["Num"];
+            if (Session["user"] != null)
+            {
+                Response.Write(Session["user"].ToString());
+                toSubmission.Visible = true;
+            }
+            else
+            {
+                toSubmission.Visible = false;
+            }
             if (!IsPostBack)
             {
-                btnLoad_Click(this, e);
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "cloneStuff", "cloneStuff()", true);
+                btnLoad_Click(i);
                 System.Diagnostics.Debug.WriteLine("loaded");
-            }
-           
+                
+            }          
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
@@ -32,13 +43,13 @@ namespace KnowledgeBridge
             Response.Redirect("Index.aspx?Int=" + 55);
         }
 
-        protected void btnLoad_Click(object sender, EventArgs e)
+        protected void btnLoad_Click(string i)
         {
             String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
             SqlConnection conn = new SqlConnection(strConnString);
 
             conn.Open();
-            string query = "SELECT * FROM ModelInformation where Id=5";
+            string query = "SELECT * FROM ModelInformation where Id=" + i;
             using (SqlCommand cmd = new SqlCommand(query, conn))
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
