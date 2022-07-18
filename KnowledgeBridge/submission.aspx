@@ -49,7 +49,7 @@
                         </li>
                         <!--Go to main page (MAP)-->
                         <li class="nav-item">
-                            <a class="nav-link" href="index.aspx">
+                            <a class="nav-link" href="Index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
@@ -127,31 +127,50 @@
         <form id="form2" runat="server">
             <div class="subform" id="subform">
 
-			    <!-- inputs för inlämningen-->
+			    <!-- inputs for submission-->
 			    <h1>Submission form</h1>
                 <h2>Submit the content you want to display here</h2>
-                <!-- Company name (png/jpeg?) -->
-                <label>Add an image your company name / logo [png or jpeg]</label>
-                <input class="upload-btn" type="file" id="logo" name="logo" accept="image/png, image/jpeg"/>
+                <!-- Company name (text) -->
+                <label>Write the name of your company</label>
+                <input type="text" id="company" placeholder="Company name" runat="server">
+                <br />
+                <br />
+                <!-- Company name image(png/jpeg?) -->
+                <label>Add an image of your company name / logo [png or jpeg]</label>
+                <br />
+                <asp:FileUpload ID="logo" class="upload-btn" runat="server" />               
+                <br />
+                <br />
+                <!-- Project name (text) -->
+                <label>Write the name of the project</label>
+                <br />
+                <br />
+                <input type="text" id="project" placeholder="Project name" runat="server">
                 <br />
                 <br />
                 <!-- 3D mesh (glb?) -->
                 <label>Add a 3D model</label>
-                <input class="upload-btn" type="file" id="mesh" name="mesh" accept="glb"/>
+                <%--<input type="file" class="sub-btn" id="mesh" name="mesh" accept="glb" runat="server"/>--%>
+                <asp:FileUpload ID="meshes" class="upload-btn" AllowMultiple runat="server" />
                 <br />
                 <br />
                 <label>Add any pictures you want to show [max ?]</label>
-                <input class="upload-btn" type="file" id="pictures" name="pictures" multiple/>
+                <%--<input type="file" id="pictures" name="pictures" multiple runat="server"/>--%>
+                <asp:FileUpload ID="pictures" class="upload-btn" AllowMultiple runat="server" />
                 <br />
                 <br />
                 <!-- Text information to be displayed -->
-                <label>Add any additional information about your compamy or project that you would like people to know</label>
+                <label>Add any additional information about your company or project that you would like people to know</label>
                 <br />
                 <br />
-                <textarea class="add-text" placeholder="Add information here!"></textarea>
+                <textarea class="add-text" id="desc" placeholder="Add information here!" runat="server"></textarea>
            <!-- <input type="text" class="add-text" id="info" name="info" />--> 
                 <br />
                 <br />
+                <%--<input type="submit" runat="server" onserverclick="btnUpload_Click" allowmultiple="true"/>--%>
+                <asp:Button ID="submit" runat="server" Text="Submit" OnClick="btnUpload_Click"/>
+
+            </div>
                 <input class="submit-form-btn" type="submit"/>
 
             </div>
