@@ -18,9 +18,14 @@ namespace KnowledgeBridge
             if (Session["user"] != null)
             {
                 Response.Write(Session["user"].ToString());
+                toSubmission.Visible = true;
+            }
+            else
+            {
+                toSubmission.Visible = false;
             }
         }
-        protected void btnUpload_Click(object sender, EventArgs e)
+            protected void btnUpload_Click(object sender, EventArgs e)
         {
             //System.Diagnostics.Debug.WriteLine(fileUpload.PostedFile.FileName);
             string logoFilePath = logo.PostedFile.FileName;

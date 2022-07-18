@@ -263,14 +263,18 @@
                          function signup() {
 
                              x.style.opacity = "0";
+                             x.style.pointerEvents = "none";
                              y.style.opacity = "1";
+                             y.style.pointerEvents = "auto";
                              z.style.left = "110px";
                          }
 
                          function login() {
 
                              x.style.opacity = "1";
+                             x.style.pointerEvents = "auto";                             
                              y.style.opacity = "0";
+                             y.style.pointerEvents = "none";
                              z.style.left = "0px";
                          }
 
