@@ -27,33 +27,48 @@
 
 
         <!-- MAIN MENU -->
-        <!-- SEARCH BAR -->
-         <div class="search-box"> 
-                   <input type="text" class="search-input" placeholder="Type to search!" />
-                      <a class="search-btn" href="#">
-                         <i class="fa-solid fa-magnifying-glass"></i>
-                      </a>
-         </div>
 
-         <nav class="navbar">
+         <div class="menu-container">
+
+                <!--Toggle menu button-->
+                <div class="menu-btn" onclick="menumove()">
+                     <a href="#" class="menu-btn__burger" ></a>
+                 </div>
+
+                <!--Hidden menu-->
+                <nav class="navbar" id="menu">
                     <ul class="navbar-nav">
+                        <!--Search button-->
+                        <li class="nav-item">
+                            <div class="search-box" id="search"> 
+                                   <input type="text" class="search-input" placeholder="Type to search!" />
+                                      <a class="search-btn" href="#">
+                                         <i class="fa-solid fa-magnifying-glass"></i>
+                                      </a>
+                            </div>
+                        </li>
+
+                        <!--User page-->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                 <i class="fa-solid fa-magnifying-glass"></i>
+                              <i class="fa-solid fa-user"></i>
                             </a>
                         </li>
+                        <!--Login/Sign in button-->
                         <li class="nav-item">
                             <a class="nav-link" id="login-btn" onclick="login-btn()" href="#">
                               <i class="fa-solid fa-arrow-right-to-bracket"></i>
                             </a>
                         </li>
+                        <!--Go to main page (MAP)-->
                         <li class="nav-item">
                             <a class="nav-link" href="index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
+                        <!--Submite button-->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/submission.aspx">
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
@@ -64,6 +79,7 @@
                         </li>
                     </ul>
                 </nav>
+              </div>
 
 
         <div id="ImageShowcase" runat="server" src="">           
@@ -196,61 +212,86 @@
 
          <!-- Initialize Swiper -->
          <script>
-                        var swiper = new Swiper(".mySwiper", {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                            loop: true,
-                            pagination: {
-                                el: ".swiper-pagination",
-                                clickable: true,
-                            },
-                            navigation: {
-                                nextEl: ".swiper-button-next",
-                                prevEl: ".swiper-button-prev",
-                            },
-                        });
+             var swiper = new Swiper(".mySwiper", {
+                 slidesPerView: 1,
+                 spaceBetween: 30,
+                 loop: true,
+                 pagination: {
+                     el: ".swiper-pagination",
+                     clickable: true,
+                 },
+                 navigation: {
+                     nextEl: ".swiper-button-next",
+                     prevEl: ".swiper-button-prev",
+                 },
+             });
 
-                        // Popup window
+             // Popup window
 
-                        document.getElementById('login-btn').addEventListener('click', function () {
-                            document.querySelector('.popup').style.opacity = '1';
-                            document.getElementById("popup").style.pointerEvents = "auto";
-                        });
+             document.getElementById('login-btn').addEventListener('click', function () {
+                 document.querySelector('.popup').style.opacity = '1';
+                 document.getElementById("popup").style.visibility = "visible";
+                 document.getElementById("popup").style.pointerEvents = "auto";
+             });
 
-                        document.getElementById('exit').addEventListener('click', function () {
-                            document.querySelector('.popup').style.opacity = '0';
-                            document.getElementById("popup").style.pointerEvents = "none";
-                        });
+             document.getElementById('exit').addEventListener('click', function () {
+                 document.querySelector('.popup').style.opacity = '0';
+                 document.getElementById("popup").style.visibility = "hidden";
+                 document.getElementById("popup").style.pointerEvents = "none";
+             });
 
-                        // Login/Sign up toggle button
+             // Login/Sign up toggle button
 
-                        var x = document.getElementById("login");
-                        var y = document.getElementById("signup");
-                        var z = document.getElementById("btn");
-
-                     
-
-                        function signup() {
-
-                            x.style.opacity = "0";
-                            x.style.pointerEvents = "none";
-                            y.style.opacity = "1";
-                            y.style.pointerEvents = "auto";
-                            z.style.left = "110px";
-                        }
-
-                        function login() {
-
-                            x.style.opacity = "1";
-                            x.style.pointerEvents = "auto";
-                            y.style.pointerEvents = "none";
-                            y.style.opacity = "0";
-                            z.style.left = "0px";
-                        }
+             var x = document.getElementById("login");
+             var y = document.getElementById("signup");
+             var z = document.getElementById("btn");
 
 
 
-                    </script>
+             function signup() {
+
+                 x.style.opacity = "0";
+                 y.style.opacity = "1";
+                 z.style.left = "110px";
+             }
+
+             function login() {
+
+                 x.style.opacity = "1";
+                 y.style.opacity = "0";
+                 z.style.left = "0px";
+             }
+
+             // Menu Slide
+
+             function menumove() {
+                 var a = document.getElementById("menu");
+                 var b = document.getElementById("search");
+                 if (a.style.left == "0px") {
+                     a.style.left = "-125px"
+                     b.style.left = "-125px"
+
+                 } else {
+                     a.style.left = "0px";
+                     b.style.left = "6px"
+                 }
+
+             }
+
+             // Menu button animation
+             const menuBtn = document.querySelector('.menu-btn');
+             let menuOpen = false;
+             menuBtn.addEventListener('click', () => {
+                 if (!menuOpen) {
+                     menuBtn.classList.add('open');
+                     menuOpen = true;
+                 } else {
+                     menuBtn.classList.remove('open');
+                     menuOpen = false;
+                 }
+             });
+
+         </script>
 
 
     </form>

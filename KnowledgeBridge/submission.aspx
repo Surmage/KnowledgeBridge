@@ -14,37 +14,51 @@
     </style>
 </head>
 <body class="background">
+            <!-- MAIN MENU -->
+            <div class="menu-container">
 
-	 <div class="search-box"> 
-                     <input type="text" class="search-input" placeholder="Type to search!" />
-                           <a class="search-btn" href="#">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                           </a>
-               </div>
+                <!--Toggle menu button-->
+                <div class="menu-btn" onclick="menumove()">
+                     <a href="#" class="menu-btn__burger" ></a>
+                 </div>
 
-
-
-                <nav class="navbar">
+                <!--Hidden menu-->
+                <nav class="navbar" id="menu">
                     <ul class="navbar-nav">
-                        <!-- LOGO -->
+                        <!--Search button-->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                 <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
+                            <div class="search-box" id="search"> 
+                                   <input type="text" class="search-input" placeholder="Type to search!" />
+                                      <a class="search-btn" href="#">
+                                         <i class="fa-solid fa-magnifying-glass"></i>
+                                      </a>
+                            </div>
                         </li>
 
+                        <!--User page-->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
+                              <i class="fa-solid fa-user"></i>
+                            </a>
+                        </li>
+                        <!--Login/Sign in button-->
+                        <li class="nav-item">
+                            <a class="nav-link" id="login-btn" onclick="login-btn()" href="#">
                               <i class="fa-solid fa-arrow-right-to-bracket"></i>
                             </a>
                         </li>
-
+                        <!--Go to main page (MAP)-->
                         <li class="nav-item">
                             <a class="nav-link" href="index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
-
+                        <!--Submite button-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/submission.aspx">
+                                 <i class="fa-solid fa-cube"></i>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                  <i class="fa-solid fa-cube"></i>
@@ -52,24 +66,34 @@
                         </li>
                     </ul>
                 </nav>
+              </div>
 
-    <main>
+   
 	<!-- Instructions on how and what to Submit -->
         <div class="instructions">
 
-            <h1>How to submit material to Knowladge Bridge</h1>
-            <h2>Here is a list with all the information regarding file types, size, information text etc.</h2>
+            <h1>Submition Instructions</h1>
+            <h2>Here is the instructionsfor submiting to Knowladge Bridge</h2>
             <h2>Submition form below.</h2>
                 <a class="to-sub" href="#subform">
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
 		    <h3>Conpany Name / Logo</h3>
-			     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-			    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-			    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-			    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-			    deserunt mollit anim id est laborum</p>
+			     <p> The first item you are to submit to Knowladge Bridge is an image of the comapny name or comapny logo.
+                     The aspecratio of the logo image is 21:9. the acapatble image files are PNG and JPEG. Make sure the 
+                     background is white or transparent.
+                     <br />
+                     <br />
+                     If you are not part of an comapny aka a student or other follow these instructions.
+                     <br />
+                     <br />
+                     Students:
+                     <br />
+                     <br />
+
+                     Other:
+
+			     </p>
 			
 		    <h3>3D Model</h3>
 			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -99,6 +123,7 @@
 
         </div>
 
+        
         <form id="form2" runat="server">
             <div class="subform" id="subform">
 
@@ -132,7 +157,7 @@
             </div>
 
             <!-- LOGIN POPUP WINDOW -->
-        <div class="popup" id="popup">
+       <div class="popup" id="popup">
               
                 <a class="close-btn" id="exit" onclick="exit()"><i class="fa-solid fa-xmark"></i></a>
 
@@ -155,7 +180,7 @@
                         <label><span class="remember">Remember me</span></label>
                         <input class="remember-btn" type="checkbox" />
                         
-                        <a class="forgot" href="#">Forgot Password</a>
+                        <a class="forgot" href="#">Forgot Password?</a>
                         
                         <button class="submit" type="submit">Login</button>
 
@@ -181,45 +206,92 @@
                     </div>
             </div>
 
-        <script>
+       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-            document.getElementById('login-btn').addEventListener('click', function () {
-                document.querySelector('.popup').style.opacity = '1';
-                document.getElementById("popup").style.pointerEvents = "auto";
-               
-            });
+                    <!-- Initialize Swiper -->
+                     <script>
+                         var swiper = new Swiper(".mySwiper", {
+                             slidesPerView: 1,
+                             spaceBetween: 30,
+                             loop: true,
+                             pagination: {
+                                 el: ".swiper-pagination",
+                                 clickable: true,
+                             },
+                             navigation: {
+                                 nextEl: ".swiper-button-next",
+                                 prevEl: ".swiper-button-prev",
+                             },
+                         });
 
-            document.getElementById('exit').addEventListener('click', function () {
-                document.querySelector('.popup').style.opacity = '0';
-                document.getElementById("popup").style.pointerEvents = "none";
-                
-            });
+                         // Popup window
 
-            var x = document.getElementById("login");
-            var y = document.getElementById("signup");
-            var z = document.getElementById("btn");
+                         document.getElementById('login-btn').addEventListener('click', function () {
+                             document.querySelector('.popup').style.opacity = '1';
+                             document.getElementById("popup").style.visibility = "visible";
+                             document.getElementById("popup").style.pointerEvents = "auto";
+                         });
+
+                         document.getElementById('exit').addEventListener('click', function () {
+                             document.querySelector('.popup').style.opacity = '0';
+                             document.getElementById("popup").style.visibility = "hidden";
+                             document.getElementById("popup").style.pointerEvents = "none";
+                         });
+
+                         // Login/Sign up toggle button
+
+                         var x = document.getElementById("login");
+                         var y = document.getElementById("signup");
+                         var z = document.getElementById("btn");
 
 
-            function signup() {
 
-                x.style.opacity = "0";
-                x.style.pointerEvents = "none";
-                y.style.opacity = "1";
-                y.style.pointerEvents = "auto";
-                z.style.left = "110px";
-            }
+                         function signup() {
 
-            function login() {
+                             x.style.opacity = "0";
+                             y.style.opacity = "1";
+                             z.style.left = "110px";
+                         }
 
-                x.style.opacity = "1";
-                x.style.pointerEvents = "auto";
-                y.style.pointerEvents = "none";
-                y.style.opacity = "0";
-                z.style.left = "0px";
-            }
-        </script>
+                         function login() {
+
+                             x.style.opacity = "1";
+                             y.style.opacity = "0";
+                             z.style.left = "0px";
+                         }
+
+                         // Menu Slide
+
+                         function menumove() {
+                             var a = document.getElementById("menu");
+                             var b = document.getElementById("search");
+                             if (a.style.left == "0px") {
+                                 a.style.left = "-125px"
+                                 b.style.left = "-125px"
+
+                             } else {
+                                 a.style.left = "0px";
+                                 b.style.left = "6px"
+                             }
+
+                         }
+
+                         // Menu button animation
+                         const menuBtn = document.querySelector('.menu-btn');
+                         let menuOpen = false;
+                         menuBtn.addEventListener('click', () => {
+                             if (!menuOpen) {
+                                 menuBtn.classList.add('open');
+                                 menuOpen = true;
+                             } else {
+                                 menuBtn.classList.remove('open');
+                                 menuOpen = false;
+                             }
+                         });
+
+                     </script>
 
         </form>
-    </main>
+   
 </body>
 </html>

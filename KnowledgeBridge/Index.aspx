@@ -8,9 +8,15 @@
 
     <link href="style.css" rel="stylesheet" />
 
-     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 
-     <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Lexend+Deca:wght@600&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300&display=swap');
+    </style>
 
 </head>
 <body>
@@ -24,32 +30,47 @@
                 <!--<asp:Button class="button" ID="btnGoToSubmit" runat="server" OnClick="btnGoToSubmit_Click" Text="To submission" /> -->
   
                 <!-- MAIN MENU -->
-                <!-- SEARCH BAR -->
-               <div class="search-box"> 
-                   <input type="text" class="search-input" placeholder="Type to search!" />
-                      <a class="search-btn" href="#">
-                         <i class="fa-solid fa-magnifying-glass"></i>
-                      </a>
-               </div>
-                <nav class="navbar">
+            <div class="menu-container">
+
+                <!--Toggle menu button-->
+                <div class="menu-btn" onclick="menumove()">
+                     <a href="#" class="menu-btn__burger" ></a>
+                 </div>
+
+                <!--Hidden menu-->
+                <nav class="navbar" id="menu">
                     <ul class="navbar-nav">
+                        <!--Search button-->
+                        <li class="nav-item">
+                            <div class="search-box" id="search"> 
+                                   <input type="text" class="search-input" placeholder="Type to search!" />
+                                      <a class="search-btn" href="#">
+                                         <i class="fa-solid fa-magnifying-glass"></i>
+                                      </a>
+                            </div>
+                        </li>
+
+                        <!--User page-->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                 <i class="fa-solid fa-magnifying-glass"></i>
+                              <i class="fa-solid fa-user"></i>
                             </a>
                         </li>
+                        <!--Login/Sign in button-->
                         <li class="nav-item">
                             <a class="nav-link" id="login-btn" onclick="login-btn()" href="#">
                               <i class="fa-solid fa-arrow-right-to-bracket"></i>
                             </a>
                         </li>
+                        <!--Go to main page (MAP)-->
                         <li class="nav-item">
                             <a class="nav-link" href="index.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
+                        <!--Submite button-->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/submission.aspx">
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
@@ -60,9 +81,13 @@
                         </li>
                     </ul>
                 </nav>
-              
-                <!-- ICON LINKS 
+              </div>
 
+              
+              <!-- ICON LINKS -->
+                <!-- 
+
+                   <i class="fa-solid fa-user"></i>
                    <i class="fa-solid fa-comment-arrow-up"></i>
                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
                    <i class="fa-solid fa-map-location-dot"></i>
@@ -76,20 +101,24 @@
                    <button><i class="fa-solid fa-angle-right"></i></button>
                    <button><i class="fa-solid fa-angle-left"></i></button> -->
 
-
+              <!--Swiper-->
              <div class="swiper mySwiper">
                           <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="map">
-                                        <image src="\assets\map_v1.png" width="100%" height="100%"></image>
+                                        <image class="map-img" src="\assets\V3png.png"  height="100%"></image>
                                     </div>
                                 </div>
+
+
                                 <div class="swiper-slide">
                                     <div class="content">
                                         <div class="content-logo">
                                              <image class="logo" src="\assets\Put_Logo_Here.png"></image>
                                         </div>
-                                        <div class="content-img"></div>
+                                        <div class="content-img">
+                                             <image class="img" src="\assets\red.png"></image>
+                                        </div>
                                         <div class="content-text">
                                             <p class="text">
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -97,13 +126,41 @@
 			                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
 			                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
 			                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-			                                    deserunt mollit anim id est laborum
-                                            </p>
+			                                    deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud
+			                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            </p>                     
                                         </div>
+
+                                        <button class="to-model">MODEL</button>
 
                                     </div>
                                 </div>
-                                <div class="swiper-slide">Slide 3</div>
+
+
+                                <div class="swiper-slide">
+                                    <div class="content">
+                                        <div class="content-logo">
+                                             <image class="logo" src="\assets\Google_logo.png"></image>
+                                        </div>
+                                        <div class="content-img">
+                                             <image class="img" src="\assets\office.jpg"></image>
+                                        </div>
+                                        <div class="content-text">
+                                            <p class="text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+			                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+			                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+			                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+			                                    deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud
+			                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            </p>                     
+                                        </div>
+
+                                        <button class="to-model">MODEL</button>
+
+                                    </div>
+                                </div>
                                 <div class="swiper-slide">Slide 4</div>
                                 <div class="swiper-slide">Slide 5</div>
                                 <div class="swiper-slide">Slide 6</div>
@@ -175,62 +232,87 @@
                     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
                     <!-- Initialize Swiper -->
-                    <script>
-                        var swiper = new Swiper(".mySwiper", {
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                            loop: true,
-                            pagination: {
-                                el: ".swiper-pagination",
-                                clickable: true,
-                            },
-                            navigation: {
-                                nextEl: ".swiper-button-next",
-                                prevEl: ".swiper-button-prev",
-                            },
-                        });
+                     <script>
+                         var swiper = new Swiper(".mySwiper", {
+                             slidesPerView: 1,
+                             spaceBetween: 30,
+                             loop: true,
+                             pagination: {
+                                 el: ".swiper-pagination",
+                                 clickable: true,
+                             },
+                             navigation: {
+                                 nextEl: ".swiper-button-next",
+                                 prevEl: ".swiper-button-prev",
+                             },
+                         });
 
-                        // Popup window
+                         // Popup window
 
-                        document.getElementById('login-btn').addEventListener('click', function () {
-                            document.querySelector('.popup').style.opacity = '1';
-                            document.getElementById("popup").style.pointerEvents = "auto";
-                        });
+                         document.getElementById('login-btn').addEventListener('click', function () {
+                             document.querySelector('.popup').style.opacity = '1';
+                             document.getElementById("popup").style.visibility = "visible";
+                             document.getElementById("popup").style.pointerEvents = "auto";
+                         });
 
-                        document.getElementById('exit').addEventListener('click', function () {
-                            document.querySelector('.popup').style.opacity = '0';
-                            document.getElementById("popup").style.pointerEvents = "none";
-                        });
+                         document.getElementById('exit').addEventListener('click', function () {
+                             document.querySelector('.popup').style.opacity = '0';
+                             document.getElementById("popup").style.visibility = "hidden";
+                             document.getElementById("popup").style.pointerEvents = "none";
+                         });
 
-                        // Login/Sign up toggle button
+                         // Login/Sign up toggle button
 
-                        var x = document.getElementById("login");
-                        var y = document.getElementById("signup");
-                        var z = document.getElementById("btn");
+                         var x = document.getElementById("login");
+                         var y = document.getElementById("signup");
+                         var z = document.getElementById("btn");
 
-                       
 
-                        function signup() {
-                          
-                            x.style.opacity = "0";
-                            x.style.pointerEvents = "none";
-                            y.style.opacity = "1";
-                            y.style.pointerEvents = "auto";
-                            z.style.left = "110px";
-                        }
 
-                        function login() {
-                           
-                            x.style.opacity = "1";
-                            x.style.pointerEvents = "auto";
-                            y.style.pointerEvents = "none";
-                            y.style.opacity = "0";
-                            z.style.left = "0px";
-                        }
+                         function signup() {
 
-                        
+                             x.style.opacity = "0";
+                             y.style.opacity = "1";
+                             z.style.left = "110px";
+                         }
 
-                    </script>
+                         function login() {
+
+                             x.style.opacity = "1";
+                             y.style.opacity = "0";
+                             z.style.left = "0px";
+                         }
+
+                         // Menu Slide
+
+                         function menumove() {
+                             var a = document.getElementById("menu");
+                             var b = document.getElementById("search");
+                             if (a.style.left == "0px") {
+                                 a.style.left = "-125px"
+                                 b.style.left = "-125px"
+
+                             } else {
+                                 a.style.left = "0px";
+                                 b.style.left = "6px"
+                             }
+
+                         }
+
+                         // Menu button animation
+                         const menuBtn = document.querySelector('.menu-btn');
+                         let menuOpen = false;
+                         menuBtn.addEventListener('click', () => {
+                             if (!menuOpen) {
+                                 menuBtn.classList.add('open');
+                                 menuOpen = true;
+                             } else {
+                                 menuBtn.classList.remove('open');
+                                 menuOpen = false;
+                             }
+                         });
+
+                     </script>
         
           
          </div>       
