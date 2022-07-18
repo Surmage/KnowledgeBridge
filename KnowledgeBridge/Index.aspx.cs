@@ -53,7 +53,7 @@ namespace KnowledgeBridge
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@search", search);
             System.Diagnostics.Debug.WriteLine(query);
-            using (cmd)               
+            using (cmd)
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 int results = 0;
@@ -61,9 +61,10 @@ namespace KnowledgeBridge
                 {
                     results++;
                 }
-                
+
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Found " + results + " results')", true);
             }
+            searchBox.Value = "";
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
