@@ -30,7 +30,7 @@
 
                 <!--Toggle menu button-->
                 <div class="menu-btn" onclick="menumove()">
-                     <a href="#" class="menu-btn__burger" ></a>
+                     <a href="#" class="menu-btn__burger"></a>
                  </div>
 
                 <!--Hidden menu-->
@@ -101,9 +101,24 @@
              <div class="swiper mySwiper">
                           <div class="swiper-wrapper">
                                 <div class="swiper-slide">
+
                                     <div class="map">
-                                        <image class="map-img" src="\assets\V3png.png"  height="100%"></image>
+                                        <image class="map-img" src="\assets\V3png.png"  height="100%">
+
+                                            <button class="area" id="ltu-a"></button>
+                                            <button class="area" id="ltu-b1"></button>
+                                            <button class="area" id="ltu-b2"></button>
+                                            <button class="area" id="area-c"></button>
+                                            <button class="area" id="area-d"></button>
+                                            <button class="area" id="area-e"></button>
+
+                                        </image>   
+
+                                        
+
+
                                     </div>
+
                                 </div>
 
 
@@ -127,7 +142,8 @@
                                             </p>                     
                                         </div>
 
-                                        <button class="to-model">MODEL</button>
+                                        <asp:Button class="button" runat="server" Text="View" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
+                                       <!-- <button class="to-model">MODEL</button> -->
 
                                     </div>
                                 </div>
@@ -152,7 +168,8 @@
 			                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             </p>                     
                                         </div>
-                                        <asp:Button class="button" runat="server" Text="View" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
+                                        <!-- <asp:Button class="button" runat="server" Text="View" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" /> -->
+                                        <button class="button">MODEL</button>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">Slide 4</div>

@@ -168,12 +168,12 @@
                 <br />
                 <br />
                 <%--<input type="submit" runat="server" onserverclick="btnUpload_Click" allowmultiple="true"/>--%>
-                <asp:Button ID="submit" runat="server" Text="Submit" OnClick="btnUpload_Click"/>
+                <asp:Button class="submit-form-btn" ID="submit" runat="server"  Text="Submit" OnClick="btnUpload_Click"/>
 
             </div>
-                <input class="submit-form-btn" type="submit"/>
+               
 
-            </div>
+            
 
             <!-- LOGIN POPUP WINDOW -->
        <div class="popup" id="popup">
