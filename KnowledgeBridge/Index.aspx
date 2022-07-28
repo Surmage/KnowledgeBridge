@@ -39,8 +39,8 @@
                         <!--Search button-->
                         <li class="nav-item">
                             <div class="search-box" id="search"> 
-                                   <input type="text" class="search-input" placeholder="Type to search!" />
-                                      <a class="search-btn" href="#">
+                                   <input type="text" id="searchBox" runat="server" class="search-input" placeholder="Type to search!" />
+                                      <a class="search-btn" href="#" runat="server" onserverclick="btnLoad_Click">
                                          <i class="fa-solid fa-magnifying-glass"></i>
                                       </a>
                             </div>
@@ -64,7 +64,7 @@
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
-                        <!--Submite button-->
+                        <!--Submit button-->
                         <li class="nav-item">
                             <a class="nav-link" href="/submission.aspx">
                                  <i class="fa-solid fa-cube"></i>
@@ -142,8 +142,7 @@
                                             </p>                     
                                         </div>
 
-                                        <asp:Button class="button" runat="server" Text="View" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
-                                       <!-- <button class="to-model">MODEL</button> -->
+                                        <asp:Button class="to-model" runat="server" Text="MODEL" CommandArgument='2' CommandName="btn1Click" OnClick="btnView_Click" />
 
                                     </div>
                                 </div>
@@ -168,8 +167,7 @@
 			                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             </p>                     
                                         </div>
-                                        <!-- <asp:Button class="button" runat="server" Text="View" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" /> -->
-                                        <button class="button">MODEL</button>
+                                        <asp:Button class="to-model" runat="server" Text="MODEL" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
                                     </div>
                                 </div>
                                 <div class="swiper-slide">Slide 4</div>
@@ -280,14 +278,18 @@
                          function signup() {
 
                              x.style.opacity = "0";
+                             x.style.pointerEvents = "none";
                              y.style.opacity = "1";
+                             y.style.pointerEvents = "auto";
                              z.style.left = "110px";
                          }
 
                          function login() {
 
                              x.style.opacity = "1";
+                             x.style.pointerEvents = "auto";                             
                              y.style.opacity = "0";
+                             y.style.pointerEvents = "none";
                              z.style.left = "0px";
                          }
 

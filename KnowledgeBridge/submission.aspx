@@ -53,14 +53,14 @@
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
-                        <!--Submite button-->
+                        <!--Submit button-->
                         <li class="nav-item">
-                            <a class="nav-link" href="/submission.aspx">
+                            <a class="nav-link" href="/submission.aspx" >
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li class="nav-item" id="toSubmission" runat="server">
+                            <a class="nav-link" href="/submission.aspx">
                                  <i class="fa-solid fa-cube"></i>
                             </a>
                         </li>
@@ -72,19 +72,19 @@
 	<!-- Instructions on how and what to Submit -->
         <div class="instructions">
 
-            <h1>Submition Instructions</h1>
-            <h2>Here is the instructionsfor submiting to Knowladge Bridge</h2>
-            <h2>Submition form below.</h2>
+            <h1>Submission Instructions</h1>
+            <h2>Here are the instructions for submitting to Knowledge Bridge</h2>
+            <h2>Submission form below.</h2>
                 <a class="to-sub" href="#subform">
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
 		    <h3>Conpany Name / Logo</h3>
-			     <p> The first item you are to submit to Knowladge Bridge is an image of the comapny name or comapny logo.
-                     The aspecratio of the logo image is 21:9. the acapatble image files are PNG and JPEG. Make sure the 
+			     <p> The first item you are to submit to Knowledge Bridge is an image of the company name or company logo.
+                     The aspect ratio of the logo image is 21:9. The acceptable image types are PNG and JPEG. Make sure the 
                      background is white or transparent.
                      <br />
                      <br />
-                     If you are not part of an comapny aka a student or other follow these instructions.
+                     If you are not part of a company, aka a student or other, follow these instructions:
                      <br />
                      <br />
                      Students:
@@ -168,12 +168,13 @@
                 <br />
                 <br />
                 <%--<input type="submit" runat="server" onserverclick="btnUpload_Click" allowmultiple="true"/>--%>
-                <asp:Button class="submit-form-btn" ID="submit" runat="server"  Text="Submit" OnClick="btnUpload_Click"/>
+                <%--<input type="submit" runat="server" onserverclick="btnUpload_Click" allowmultiple="true"/>--%>
+                <asp:Button ID="submit" class="submit-form-btn" runat="server" Text="Submit" OnClick="btnUpload_Click"/>
 
             </div>
-               
+                <%--<input class="submit-form-btn" type="submit"/>
 
-            
+            </div>--%>
 
             <!-- LOGIN POPUP WINDOW -->
        <div class="popup" id="popup">
@@ -268,14 +269,18 @@
                          function signup() {
 
                              x.style.opacity = "0";
+                             x.style.pointerEvents = "none";
                              y.style.opacity = "1";
+                             y.style.pointerEvents = "auto";
                              z.style.left = "110px";
                          }
 
                          function login() {
 
                              x.style.opacity = "1";
+                             x.style.pointerEvents = "auto";
                              y.style.opacity = "0";
+                             y.style.pointerEvents = "none";
                              z.style.left = "0px";
                          }
 
