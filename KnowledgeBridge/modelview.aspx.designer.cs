@@ -42,6 +42,15 @@ namespace KnowledgeBridge
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ImageShowcase;
 
         /// <summary>
+        /// slider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl slider;
+
+        /// <summary>
         /// fileUpload control.
         /// </summary>
         /// <remarks>

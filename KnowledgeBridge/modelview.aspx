@@ -93,23 +93,25 @@
 
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <div class="swiper mySwiper">
-                          <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <model-viewer class="model-viewer" id="ModelShowcase" src=""
+                          <div class="swiper-wrapper" id="slider" runat="server">
+                                <div class="swiper-slide" id="testSwipe">
+                                    <p id="pa">1</p>
+                                    <br />
+                                    <model-viewer class="model-viewer" id="ModelShowcase" src="Assets/Dinosaur.glb"
                                         alt="A 3D model of an astronaut"
                                         ar
                                         auto-rotate
                                         camera-controls>
-                                    </model-viewer>
+                                    </model-viewer>   
                                 </div>
-                                <div id="testSwipe" class="swiper-slide">Slide 2</div>
-                                <div class="swiper-slide">Slide 3</div>
+                                <%--<div id="testSwipe" class="swiper-slide">Slide 2</div>--%>
+                               <%-- <div class="swiper-slide">Slide 3</div>
                                 <div class="swiper-slide">Slide 4</div>
                                 <div class="swiper-slide">Slide 5</div>
                                 <div class="swiper-slide">Slide 6</div>
                                 <div class="swiper-slide">Slide 7</div>
                                 <div class="swiper-slide">Slide 8</div>
-                                <div class="swiper-slide">Slide 9</div>
+                                <div class="swiper-slide">Slide 9</div>--%>
                           </div>
 
                   <footer class="scroll-btn">
@@ -121,8 +123,9 @@
 
             <script type="text/javascript">
                 //const models = ['Allosaurus.glb', 'Dinosaur.glb'];
-                const slide2 = document.getElementById("testSwipe");
+                const slider = document.querySelector("#slider");
                 const toggleModel = document.querySelector('#ModelShowcase');
+                const slide = document.querySelector("#testSwipe");
                 //let j = 0;
                 //setInterval(() => toggleModel.setAttribute('src', `assets/${models[j++ % 2]}`), 7000);
                 function loadModel(data) {
@@ -133,11 +136,12 @@
                     const filepath = "data:" + filetype + ";base64," + data;
                     toggleModel.setAttribute('src', filepath);
                 }
-                function cloneStuff() {
-                    alert("oh no");
-                    //const clone = toggleModel.cloneNode(true);
-                    //clone.id = "foo2";
-                    //slide2.appendChild(clone);
+                function cloneStuff(data) { //To do : Load from backend using templates, fill with data according to search results
+                    slide.querySelector("#pa").innerHTML = "2";
+                    //slide.querySelector("#pa").innerHTML = data;
+                    slide.querySelector("#ModelShowcase").setAttribute('src', data);
+                    const clone = slide.cloneNode(true);
+                    slider.appendChild(clone);
                 }
                 
             </script>

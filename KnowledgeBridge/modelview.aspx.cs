@@ -15,27 +15,30 @@ namespace KnowledgeBridge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string i = Request.QueryString["Num"];
-            if (Session["user"] != null)
-            {
-                Response.Write(Session["user"].ToString());
-                toSubmission.Visible = true;
-            }
-            else
-            {
-                toSubmission.Visible = false;
-            }
-            if (!IsPostBack)
-            {
-                if(i == null)
-                {
-                    i = "2";
-                }
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "cloneStuff", "cloneStuff()", true);
-                btnLoad_Click(i);
-                System.Diagnostics.Debug.WriteLine("loaded");
-                
-            }          
+            //slider.Visible = false;
+            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Allosaurus.glb')", true);
+            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Dinosaur.glb')", true);
+            //string i = Request.QueryString["Num"];
+            //if (Session["user"] != null)
+            //{
+            //    Response.Write(Session["user"].ToString());
+            //    toSubmission.Visible = true;
+            //}
+            //else
+            //{
+            //    toSubmission.Visible = false;
+            //}
+            //if (!IsPostBack)
+            //{
+            //    if(i == null)
+            //    {
+            //        i = "2";
+            //    }
+            //    //ScriptManager.RegisterStartupScript(this, this.GetType(), "cloneStuff", "cloneStuff()", true);
+            //    btnLoad_Click(i);
+            //    System.Diagnostics.Debug.WriteLine("loaded");
+
+            //}          
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
