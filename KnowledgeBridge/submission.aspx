@@ -49,7 +49,7 @@
                         </li>
                         <!--Go to main page (MAP)-->
                         <li class="nav-item">
-                            <a class="nav-link" href="Index.aspx">
+                            <a class="nav-link" href="default.aspx">
                                  <i class="fa-solid fa-map-location-dot"></i>
                             </a>
                         </li>
