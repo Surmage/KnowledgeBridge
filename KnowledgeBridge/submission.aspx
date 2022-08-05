@@ -226,6 +226,23 @@
                     </div>
             </div>
 
+            <!-- EXPANDABLE FOOTER -->
+            <div class="footer-expand" id="footer">
+                <a class="footer-btn" onclick="footermove()" ><i class="fa-solid fa-info fa-2x"></i></a>
+                    
+                  <div class="footer-box">
+                      <h2>CONTACT</h2>
+                      <p class="fotter-info">name.lastname@company.com</p>
+                      <p class="fotter-info">070 000 00 00</p>
+                  </div>
+
+                  <div class="footer-box">
+                      <h2>OTHER</h2>
+                      <p class="fotter-info">name.lastname@company.com</p>
+                      <p class="fotter-info">070 000 00 00</p>
+                  </div>                    
+              </div>
+
        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
                     <!-- Initialize Swiper -->
@@ -312,6 +329,20 @@
                                  menuOpen = false;
                              }
                          });
+
+
+                        //Footer Slide
+
+                          function footermove() {
+                             var c = document.getElementById("footer");
+                             if (c.style.height == "0px") {
+                                 c.style.height = "150px"                 
+                             } 
+                             else {
+                                 c.style.height = "0px";
+                             }
+                             } 
+
 
                      </script>
 
