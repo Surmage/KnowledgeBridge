@@ -71,7 +71,7 @@
     <Content Include="App_Data\modelsdb_log.ldf">
       <DependentUpon>modelsdb.mdf</DependentUpon>
     </Content>
-    <Content Include="Index.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="modelview.aspx" />
     <Content Include="style.css" />
     <Content Include="submission.aspx" />
@@ -79,12 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypt.cs" />
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="modelview.aspx.cs">
       <DependentUpon>modelview.aspx</DependentUpon>
@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

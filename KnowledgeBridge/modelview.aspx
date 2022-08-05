@@ -24,8 +24,6 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
     <form id="form1" runat="server">
-
-
         <!-- MAIN MENU -->
 
          <div class="menu-container">
@@ -97,7 +95,7 @@
                                 <div class="swiper-slide" id="testSwipe">
                                     <p id="pa">1</p>
                                     <br />
-                                    <model-viewer class="model-viewer" id="ModelShowcase" src="Assets/Dinosaur.glb"
+                                    <model-viewer class="model-viewer" id="ModelShowcase" src="assets/Allosaurus.glb" ios-src="assets/Allosaurus.usdz"
                                         alt="A 3D model of an astronaut"
                                         ar
                                         auto-rotate
@@ -139,7 +137,8 @@
                 function cloneStuff(data) { //To do : Load from backend using templates, fill with data according to search results
                     slide.querySelector("#pa").innerHTML = "2";
                     //slide.querySelector("#pa").innerHTML = data;
-                    slide.querySelector("#ModelShowcase").setAttribute('src', data);
+                    slide.querySelector("#ModelShowcase").setAttribute('src', data + ".glb");
+                    slide.querySelector("#ModelShowcase").setAttribute('ios-src', data + ".usdz");
                     const clone = slide.cloneNode(true);
                     slider.appendChild(clone);
                 }

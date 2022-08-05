@@ -16,8 +16,8 @@ namespace KnowledgeBridge
         protected void Page_Load(object sender, EventArgs e)
         {
             //slider.Visible = false;
-            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Allosaurus.glb')", true);
-            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Dinosaur.glb')", true);
+            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Allosaurus')", true);
+            //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Dinosaur')", true);
             //string i = Request.QueryString["Num"];
             //if (Session["user"] != null)
             //{
