@@ -41,7 +41,7 @@
                             <div class="search-box" id="search"> 
                                    <input type="text" id="searchBox" runat="server" class="search-input" placeholder="Type to search!" />
                                       <a class="search-btn" href="#" runat="server" onserverclick="btnLoad_Click">
-                                         <i class="fa-solid fa-magnifying-glass"></i>
+                                         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                                       </a>
                             </div>
                         </li>
@@ -49,30 +49,30 @@
                         <!--User page-->
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                              <i class="fa-solid fa-user"></i>
+                              <i class="fa-solid fa-user fa-lg"></i>
                             </a>
                         </li>
                         <!--Login/Sign in button-->
                         <li class="nav-item">
                             <a class="nav-link" id="login-btn" onclick="login-btn()" href="#">
-                              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                              <i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
                             </a>
                         </li>
                         <!--Go to main page (MAP)-->
                         <li class="nav-item">
                             <a class="nav-link" href="Index.aspx">
-                                 <i class="fa-solid fa-map-location-dot"></i>
+                                 <i class="fa-solid fa-map-location-dot fa-lg"></i>
                             </a>
                         </li>
                         <!--Submit button-->
                         <li class="nav-item">
                             <a class="nav-link" href="/submission.aspx">
-                                 <i class="fa-solid fa-cube"></i>
+                                 <i class="fa-solid fa-cube fa-lg"></i>
                             </a>
                         </li>
                         <li class="nav-item" id="toSubmission" runat="server">
                             <a class="nav-link" href="Submission.aspx">
-                                 <i class="fa-solid fa-cube"></i>
+                                 <i class="fa-solid fa-cube fa-lg"></i>
                             </a>
                         </li>
                     </ul>
@@ -102,21 +102,30 @@
                           <div class="swiper-wrapper">
                                 <div class="swiper-slide">
 
-                                    <div class="map">
-                                        <image class="map-img" src="\assets\V3png.png"  height="100%">
+                                
 
+                                    <div class="map">
+
+                                        <iframe src="https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true" 
+                                            allow="geolocation" 
+                                            width="100%" 
+                                            height="100%" 
+                                            frameborder="0" 
+                                            scrolling="no" 
+                                            allowfullscreen>
+                                        </iframe>
+
+                                       <!-- https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true -->
+                                        <!--
+                                        <image class="map-img" src="\assets\V3png.png"  height="100%">
                                             <button class="area" id="ltu-a"></button>
                                             <button class="area" id="ltu-b1"></button>
                                             <button class="area" id="ltu-b2"></button>
                                             <button class="area" id="area-c"></button>
                                             <button class="area" id="area-d"></button>
                                             <button class="area" id="area-e"></button>
-
                                         </image>   
-
-                                        
-
-
+                                        -->
                                     </div>
 
                                 </div>
@@ -184,6 +193,22 @@
                   </footer>
               </div> 
 
+              <!-- EXPANDABLE FOOTER -->
+              <div class="footer-expand" id="footer">
+                <a class="footer-btn" onclick="footermove()" ><i class="fa-solid fa-info fa-2x"></i></a>
+                    
+                  <div class="footer-box">
+                      <h2>CONTACT</h2>
+                      <p class="fotter-info">name.lastname@company.com</p>
+                      <p class="fotter-info">070 000 00 00</p>
+                  </div>
+
+                  <div class="footer-box">
+                      <h2>OTHER</h2>
+                      <p class="fotter-info">name.lastname@company.com</p>
+                      <p class="fotter-info">070 000 00 00</p>
+                  </div>                    
+              </div>
 
               <!-- LOGIN POPUP WINDOW -->
             <div class="popup" id="popup">
@@ -231,11 +256,9 @@
 
                     </div>
             </div>
-        
 
-  
                     <!-- Swiper JS -->
-                    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+              <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
                     <!-- Initialize Swiper -->
                      <script>
@@ -293,6 +316,7 @@
                              z.style.left = "0px";
                          }
 
+
                          // Menu Slide
 
                          function menumove() {
@@ -309,7 +333,9 @@
 
                          }
 
+
                          // Menu button animation
+
                          const menuBtn = document.querySelector('.menu-btn');
                          let menuOpen = false;
                          menuBtn.addEventListener('click', () => {
@@ -322,12 +348,23 @@
                              }
                          });
 
-                     </script>
-        
-          
+                        //Footer Slide
+
+                          function footermove() {
+                             var c = document.getElementById("footer");
+                             if (c.style.height == "0px") {
+                                 c.style.height = "150px"                 
+                             } 
+                             else {
+                                 c.style.height = "0px";
+                             }
+                             } 
+                         
+                     </script>   
+              
+
          </div>       
     </form> 
-
 
 </body>
 </html>
