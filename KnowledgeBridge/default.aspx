@@ -1,24 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KnowledgeBridge.Index" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="KnowledgeBridge.Index" %>
 <!DOCTYPE html>
 
+<link href="style.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Knowledge Bridge</title>
 
-    <link href="style.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
-    <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+     <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
 
     <style>
             @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Lexend+Deca:wght@600&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300&display=swap');
     </style>
+   
 
 </head>
+ 
 <body>
 
     <form id="form1" runat="server">
@@ -179,12 +182,16 @@
                                         <asp:Button class="to-model" runat="server" Text="MODEL" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
                                     </div>
                                 </div>
-                                <div class="swiper-slide">Slide 4</div>
-                                <div class="swiper-slide">Slide 5</div>
+                                <div class="swiper-slide">
+                                     <div id="map" class="map">
+
+                                    </div>
+                                </div>
+                        <%--        <div class="swiper-slide">Slide 5</div>
                                 <div class="swiper-slide">Slide 6</div>
                                 <div class="swiper-slide">Slide 7</div>
                                 <div class="swiper-slide">Slide 8</div>
-                                <div class="swiper-slide">Slide 9</div>
+                                <div class="swiper-slide">Slide 9</div>--%>
                           </div>
 
                   <footer class="scroll-btn">
@@ -255,12 +262,14 @@
                         <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" CssClass="submit" />
 
                     </div>
-            </div>
+            </div>                 
+              
 
-                    <!-- Swiper JS -->
-              <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+         </div>       
+    </form> 
 
-                    <!-- Initialize Swiper -->
+</body>
+    <!-- Initialize Swiper -->
                      <script>
                          var swiper = new Swiper(".mySwiper", {
                              slidesPerView: 1,
@@ -310,7 +319,7 @@
                          function login() {
 
                              x.style.opacity = "1";
-                             x.style.pointerEvents = "auto";                             
+                             x.style.pointerEvents = "auto";
                              y.style.opacity = "0";
                              y.style.pointerEvents = "none";
                              z.style.left = "0px";
@@ -348,23 +357,32 @@
                              }
                          });
 
-                        //Footer Slide
+                         //Footer Slide
 
-                          function footermove() {
+                         function footermove() {
                              var c = document.getElementById("footer");
                              if (c.style.height == "0px") {
-                                 c.style.height = "150px"                 
-                             } 
+                                 c.style.height = "150px"
+                             }
                              else {
                                  c.style.height = "0px";
                              }
-                             } 
-                         
+                         }
+
+                         let mapOptions = {
+                             center: [64.7453, 20.9571],
+                             zoom: 16
+                         }
+                         let map = new L.map('map', mapOptions);
+                         let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                         map.addLayer(layer);
+                         let marker = new L.Marker([64.74466, 20.95575]);
+                         marker.addTo(map);
+                         let marker2 = new L.Marker([64.74434, 20.95660]);
+                         marker2.addTo(map);
+                         let marker3 = new L.Marker([64.74537, 20.95861]);
+                         marker3.addTo(map);
+
                      </script>   
-              
-
-         </div>       
-    </form> 
-
-</body>
+   
 </html>

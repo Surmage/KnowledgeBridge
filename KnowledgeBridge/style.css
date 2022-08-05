@@ -97,10 +97,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-.map{
-    width:500px;
-    height:500px;
-}
+
 .scroll-btn {
     position: relative;
     /*margin-top: -6vh;*/
