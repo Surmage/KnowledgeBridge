@@ -12,12 +12,20 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text.RegularExpressions;
 
+
+
 namespace KnowledgeBridge
 {
     public partial class Index : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ClientScriptManager cs = Page.ClientScript;
+            //cs.RegisterClientScriptBlock(this.GetType(), "AddMarkerKey", "addMarker()", true);
+            //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "AddMarkerKey", "addMarker(64.74434, 20.95660);", true);
+            //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "AddMarkerKey2", "addMarker(64.74537, 20.95861);", true);
+
+
             if (Session["user"] != null)
             {
                 Response.Write(Session["user"].ToString());
@@ -43,28 +51,72 @@ namespace KnowledgeBridge
 
         protected void btnLoad_Click(object sender, EventArgs e)
         {
-            string search = searchBox.Value;
+            string search = searchBox.Text;
             System.Diagnostics.Debug.WriteLine(search);
             String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
             SqlConnection conn = new SqlConnection(strConnString);
-
-            conn.Open();
-            string query = "SELECT * FROM ModelInformation WHERE projectName=@search";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@search", search);
-            System.Diagnostics.Debug.WriteLine(query);
-            using (cmd)
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            try
             {
-                int results = 0;
-                while (reader.Read())
+                conn.Open();
+                string query = "SELECT * FROM ModelInformation WHERE projectName=@search";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@search", search);
+                System.Diagnostics.Debug.WriteLine(query);
+                using (cmd)
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    results++;
+                    int results = 0;
+                    List<int> resultIndexes = new List<int>();
+                    while (reader.Read())
+                    {
+                        results++;
+                        int index = reader.GetInt32(reader.GetOrdinal("Id"));
+                        resultIndexes.Add(index);
+                    }
+
+                    System.Web.UI.ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "alert('Found " + results + " results at " + resultIndexes[1] + "');", true);
+                    if (results > 0)
+                    {
+                        string coords = String.Empty;
+                        string message = String.Empty;
+                        if(search == "test")
+                        {
+                            coords = "64.74434, 20.95660";
+                            message = "<b>Location A</b><br>Building on campus.";
+                        }
+                        else if(search == "project")
+                        {
+                            coords = "64.74537, 20.95861";
+                            message = "<b>Location B</b><br>Another building on campus.";
+                        }
+                        //testSwipe.Visible = false;
+                        slider.FindControl("testSwipe2").Visible = false;
+                        string ID = slider.FindControl("testSwipe").ID = search;
+                        System.Web.UI.HtmlControls.HtmlControl div = (System.Web.UI.HtmlControls.HtmlControl)slider.FindControl(search);
+                        System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "AddMarkerKey", "addMarker(" + coords + ", '" + message + "');", true);
+                    }
+
+                }
+            }
+            catch
+            {
+                if(searchBox.Text != "")
+                {
+                    System.Web.UI.ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "alert('Searching " + search + " yielded no results');", true);
+
+                }
+                else
+                {
+                    System.Web.UI.ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "alert('Empty search');", true);
+
                 }
 
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Found " + results + " results')", true);
             }
-            searchBox.Value = "";
+            searchBox.Text = "";
+        }
+        protected void loadSearchContents()
+        {
+
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {

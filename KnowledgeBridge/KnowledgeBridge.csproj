@@ -72,6 +72,7 @@
       <DependentUpon>modelsdb.mdf</DependentUpon>
     </Content>
     <Content Include="default.aspx" />
+    <Content Include="map.js" />
     <Content Include="modelview.aspx" />
     <Content Include="style.css" />
     <Content Include="submission.aspx" />

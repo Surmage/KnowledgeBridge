@@ -91,17 +91,20 @@
 
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <div class="swiper mySwiper">
-                          <div class="swiper-wrapper" id="slider" runat="server">
-                                <div class="swiper-slide" id="testSwipe">
+                          <div class="swiper-wrapper" ID="slider" runat="server">
+                                <div class="swiper-slide" id="testSwipe" runat="server">
                                     <p id="pa">1</p>
                                     <br />
-                                    <model-viewer class="model-viewer" id="ModelShowcase" src="assets/Allosaurus.glb" ios-src="assets/Allosaurus.usdz"
+                                    <model-viewer class="model-viewer" id="ModelShowcase" src="assets/hammer.glb" ios-src="assets/Allosaurus.usdz"
                                         alt="A 3D model of an astronaut"
                                         ar
                                         auto-rotate
                                         camera-controls>
                                     </model-viewer>   
                                 </div>
+                               
+                                    
+                                 
                                 <%--<div id="testSwipe" class="swiper-slide">Slide 2</div>--%>
                                <%-- <div class="swiper-slide">Slide 3</div>
                                 <div class="swiper-slide">Slide 4</div>
@@ -156,7 +159,7 @@
                     slide.querySelector("#pa").innerHTML = "2";
                     //slide.querySelector("#pa").innerHTML = data;
                     slide.querySelector("#ModelShowcase").setAttribute('src', data + ".glb");
-                    slide.querySelector("#ModelShowcase").setAttribute('ios-src', data + ".usdz");
+                    //slide.querySelector("#ModelShowcase").setAttribute('ios-src', data + ".usdz");
                     const clone = slide.cloneNode(true);
                     slider.appendChild(clone);
                 }

@@ -15,9 +15,15 @@ namespace KnowledgeBridge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //testSwipe.Visible = false;
+            //slider.FindControl("testSwipe").Visible = false;
+            string ID = slider.FindControl("testSwipe").ID;
+            
             //slider.Visible = false;
-            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/TEST_DSi')", true);
+            //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/blackholegun');", true);
+            //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff2", "cloneStuff('assets/Allosaurus');", true);
             //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Dinosaur')", true);
+
             //string i = Request.QueryString["Num"];
             //if (Session["user"] != null)
             //{

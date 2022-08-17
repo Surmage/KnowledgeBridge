@@ -30,7 +30,7 @@ namespace KnowledgeBridge
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText searchBox;
+        protected global::System.Web.UI.WebControls.TextBox searchBox;
 
         /// <summary>
         /// toSubmission control.
@@ -40,6 +40,33 @@ namespace KnowledgeBridge
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl toSubmission;
+
+        /// <summary>
+        /// slider control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl slider;
+
+        /// <summary>
+        /// testSwipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl testSwipe;
+
+        /// <summary>
+        /// testSwipe2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl testSwipe2;
 
         /// <summary>
         /// txtEmailLogin control.
