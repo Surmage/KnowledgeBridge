@@ -20,6 +20,8 @@
         }
     </style>
 </head>
+
+
 <body class="">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -89,19 +91,39 @@
                     camera-controls>
                 </model-viewer>  -->
 
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            //document.getElementById("slider").style.transform = null;
+            document.getElementById("slider")
+        </script>
+
         <div class="swiper mySwiper">
-                          <div class="swiper-wrapper" id="slider" runat="server">
-                                <div class="swiper-slide" id="testSwipe">
-                                    <p id="pa">1</p>
-                                    <br />
-                                    <model-viewer class="model-viewer" id="ModelShowcase" src="assets/Allosaurus.glb" ios-src="assets/Allosaurus.usdz"
-                                        alt="A 3D model of an astronaut"
-                                        ar
-                                        auto-rotate
-                                        camera-controls>
-                                    </model-viewer>   
+                          <div class="swiper-wrapper static" id="slider" runat="server" style="transition-duration: 0ms;">             
+                                <div class="swiper-slide"  id="testSwipe">
+
+                                  <!--  <script>
+                                        const swiper = new Swiper('.swiper', {
+                                            // Disable swipe motion false = disable , true = enable
+                                            enabled: true
+                                        });
+
+
+                                    </script> -->
+
+                                        <p id="pa">1</p>
+                                        <br />
+                                        <model-viewer class="model-viewer" id="ModelShowcase" src="assets/Allosaurus.glb" ios-src="assets/Allosaurus.usdz"
+                                            alt="A 3D model of an astronaut"
+                                            ar
+                                            auto-rotate
+                                            camera-controls>
+                                        </model-viewer>  
+                                     
                                 </div>
+
+                              <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+                              
+
                                 <%--<div id="testSwipe" class="swiper-slide">Slide 2</div>--%>
                                <%-- <div class="swiper-slide">Slide 3</div>
                                 <div class="swiper-slide">Slide 4</div>
@@ -112,10 +134,12 @@
                                 <div class="swiper-slide">Slide 9</div>--%>
                           </div>
 
-                  <footer class="scroll-btn">
+               
+                  <footer class="scroll-btn"onmouseover="movable()" onmouseout="static()">
                       <div class="swiper-button-next"></div>
                       <div class="swiper-button-prev"></div>
                   </footer>
+                </div>
           </div>
 
 
@@ -251,6 +275,17 @@
                      prevEl: ".swiper-button-prev",
                  },
              });
+
+             function movable() {
+                 enabled: true
+                 document.getElementById('slider').classList.remove('static')
+                
+             }
+             function static() {
+                 enabled: false
+                 document.getElementById('slider').classList.add('static')
+
+             }
 
              // Popup window
 

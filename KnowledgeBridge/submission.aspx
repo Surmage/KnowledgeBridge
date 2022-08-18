@@ -13,7 +13,8 @@
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Lexend+Deca:wght@600&display=swap');
     </style>
 </head>
-<body class="background">
+<body>
+
             <!-- MAIN MENU -->
             <div class="menu-container">
 
@@ -78,48 +79,38 @@
                 <a class="to-sub" href="#subform">
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
-		    <h3>Conpany Name / Logo</h3>
-			     <p> The first item you are to submit to Knowledge Bridge is an image of the company name or company logo.
+		    <h3>Logo</h3>
+                     <p>
+                     Company:
+                     <br />
+			         The first item you are to submit to Knowledge Bridge is an image of the company name or company logo.
                      The aspect ratio of the logo image is 21:9. The acceptable image types are PNG and JPEG. Make sure the 
                      background is white or transparent.
-                     <br />
-                     <br />
-                     If you are not part of a company, aka a student or other, follow these instructions:
-                     <br />
-                     <br />
+                     <br /><br />
                      Students:
                      <br />
-                     <br />
-
-                     Other:
-
+                     If you are a student make an image with yor name and what program you are studying. Make sure
+                     the aspect ratio of the logo image is 21:9. The acceptable image types are PNG and JPEG. Make sure the 
+                     background is white or transparent.
+                     <br /><br />
+                  
 			     </p>
 			
 		    <h3>3D Model</h3>
-			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-			    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-			    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-			    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-			    deserunt mollit anim id est laborum</p>
+			    <p>When uloading 3D models make sure that you have saved textures, animations etc into the file since there is 
+                    no way to add them afterwards. Also keep in mind to keep the file to a reasenable size as to low loading time. </p>
 			
 		    <h3>Pictures</h3>
-			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-			    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-			    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-			    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-			    deserunt mollit anim id est laborum</p>
+			    <p>Add pictures here of your work, yourself or anything that you feel is realevent to show the viwer. Keep in mind 
+                    that the image is for the most part going to be viwed though a mobile device, so try not to make any imortant details
+                    to smal.  </p>
 			
 		    <h3>Additional Information</h3>
-			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-			    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-			    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-			    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-			    deserunt mollit anim id est laborum</p>
+			    <p>Type a discription or a short (80 words long) summary of the work you are presenting. Try to be as descriptive as 
+                    you can. You want the reader to get an understanging om what the displayed content is made for.
+			    </p>
 
-            <h2></h2>
+            
 
         </div>
 
@@ -131,8 +122,11 @@
 			    <h1>Submission form</h1>
                 <h2>Submit the content you want to display here</h2>
                 <!-- Company name (text) -->
-                <label>Write the name of your company</label>
-                <input type="text" id="company" placeholder="Company name" runat="server">
+                <label>Write your name  or the name of your company</label>
+                <br />
+
+
+                <input type="text" class="upload-input" id="company" placeholder="Company name" runat="server">
                 <br />
                 <br />
                 <!-- Company name image(png/jpeg?) -->
@@ -141,11 +135,21 @@
                 <asp:FileUpload ID="logo" class="upload-btn" runat="server" />               
                 <br />
                 <br />
+                <!-- Map location (coordinates) -->
+                <label>Type in coordinates if your comapny has a location on Skellefteå Campus</label>
+                <br />
+                <a >Find out your coordinates here</a>
+                <br />
+                
+                <input type="text" class="upload-input" id="lat" placeholder="Latitude" runat="server">
+                <input type="text" class="upload-input" id="lon" placeholder="Longitude " runat="server">
+                <br />
+                <br />
                 <!-- Project name (text) -->
                 <label>Write the name of the project</label>
                 <br />
-                <br />
-                <input type="text" id="project" placeholder="Project name" runat="server">
+                
+                <input type="text" class="upload-input" id="project" placeholder="Project name" runat="server">
                 <br />
                 <br />
                 <!-- 3D mesh (glb?) -->
@@ -175,6 +179,23 @@
                 <%--<input class="submit-form-btn" type="submit"/>
 
             </div>--%>
+
+            <div class="footer-expand" id="footer">
+                <a class="footer-btn-v2" onclick="footermove()" ><i class="fa-solid fa-info fa-2x"></i></a>
+                    
+                  <div class="footer-box">
+                      <h2>CONTACT</h2>
+                      <p class="fotter-info">name.lastname@company.com</p>
+                      <p class="fotter-info">070 000 00 00</p>
+                  </div>
+
+                  <div class="footer-box">
+                      <h2>OTHER</h2>
+                      <p class="fotter-info">name.lastname@company.com</p>
+                      <p class="fotter-info">070 000 00 00</p>
+                  </div>                    
+              </div>
+
 
             <!-- LOGIN POPUP WINDOW -->
        <div class="popup" id="popup">
@@ -226,125 +247,136 @@
                     </div>
             </div>
 
-            <!-- EXPANDABLE FOOTER -->
-            <div class="footer-expand" id="footer">
-                <a class="footer-btn" onclick="footermove()" ><i class="fa-solid fa-info fa-2x"></i></a>
-                    
-                  <div class="footer-box">
-                      <h2>CONTACT</h2>
-                      <p class="fotter-info">name.lastname@company.com</p>
-                      <p class="fotter-info">070 000 00 00</p>
-                  </div>
-
-                  <div class="footer-box">
-                      <h2>OTHER</h2>
-                      <p class="fotter-info">name.lastname@company.com</p>
-                      <p class="fotter-info">070 000 00 00</p>
-                  </div>                    
-              </div>
+       
 
        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
                     <!-- Initialize Swiper -->
-                     <script>
-                         var swiper = new Swiper(".mySwiper", {
-                             slidesPerView: 1,
-                             spaceBetween: 30,
-                             loop: true,
-                             pagination: {
-                                 el: ".swiper-pagination",
-                                 clickable: true,
-                             },
-                             navigation: {
-                                 nextEl: ".swiper-button-next",
-                                 prevEl: ".swiper-button-prev",
-                             },
-                         });
+                    <script>
+                        var swiper = new Swiper(".mySwiper", {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                            loop: true,
+                            pagination: {
+                                el: ".swiper-pagination",
+                                clickable: true,
+                            },
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            },
+                        });
 
-                         // Popup window
+                        // Popup window
 
-                         document.getElementById('login-btn').addEventListener('click', function () {
-                             document.querySelector('.popup').style.opacity = '1';
-                             document.getElementById("popup").style.visibility = "visible";
-                             document.getElementById("popup").style.pointerEvents = "auto";
-                         });
+                        document.getElementById('login-btn').addEventListener('click', function () {
+                            document.querySelector('.popup').style.opacity = '1';
+                            document.getElementById("popup").style.visibility = "visible";
+                            document.getElementById("popup").style.pointerEvents = "auto";
+                        });
 
-                         document.getElementById('exit').addEventListener('click', function () {
-                             document.querySelector('.popup').style.opacity = '0';
-                             document.getElementById("popup").style.visibility = "hidden";
-                             document.getElementById("popup").style.pointerEvents = "none";
-                         });
+                        document.getElementById('exit').addEventListener('click', function () {
+                            document.querySelector('.popup').style.opacity = '0';
+                            document.getElementById("popup").style.visibility = "hidden";
+                            document.getElementById("popup").style.pointerEvents = "none";
+                        });
 
-                         // Login/Sign up toggle button
+                        // Login/Sign up toggle button
 
-                         var x = document.getElementById("login");
-                         var y = document.getElementById("signup");
-                         var z = document.getElementById("btn");
+                        var x = document.getElementById("login");
+                        var y = document.getElementById("signup");
+                        var z = document.getElementById("btn");
 
 
 
-                         function signup() {
+                        function signup() {
 
-                             x.style.opacity = "0";
-                             x.style.pointerEvents = "none";
-                             y.style.opacity = "1";
-                             y.style.pointerEvents = "auto";
-                             z.style.left = "110px";
-                         }
+                            x.style.opacity = "0";
+                            x.style.pointerEvents = "none";
+                            y.style.opacity = "1";
+                            y.style.pointerEvents = "auto";
+                            z.style.left = "110px";
+                        }
 
-                         function login() {
+                        function login() {
 
-                             x.style.opacity = "1";
-                             x.style.pointerEvents = "auto";
-                             y.style.opacity = "0";
-                             y.style.pointerEvents = "none";
-                             z.style.left = "0px";
-                         }
+                            x.style.opacity = "1";
+                            x.style.pointerEvents = "auto";
+                            y.style.opacity = "0";
+                            y.style.pointerEvents = "none";
+                            z.style.left = "0px";
+                        }
 
-                         // Menu Slide
 
-                         function menumove() {
-                             var a = document.getElementById("menu");
-                             var b = document.getElementById("search");
-                             if (a.style.left == "0px") {
-                                 a.style.left = "-125px"
-                                 b.style.left = "-125px"
+                        // Menu Slide
 
-                             } else {
-                                 a.style.left = "0px";
-                                 b.style.left = "6px"
-                             }
+                        function menumove() {
+                            var a = document.getElementById("menu");
+                            var b = document.getElementById("search");
+                            if (a.style.left == "0px") {
+                                a.style.left = "-125px"
+                                b.style.left = "-125px"
 
-                         }
+                            } else {
+                                a.style.left = "0px";
+                                b.style.left = "6px"
+                            }
 
-                         // Menu button animation
-                         const menuBtn = document.querySelector('.menu-btn');
-                         let menuOpen = false;
-                         menuBtn.addEventListener('click', () => {
-                             if (!menuOpen) {
-                                 menuBtn.classList.add('open');
-                                 menuOpen = true;
-                             } else {
-                                 menuBtn.classList.remove('open');
-                                 menuOpen = false;
-                             }
-                         });
+                        }
 
+
+                        // Menu button animation
+
+                        const menuBtn = document.querySelector('.menu-btn');
+                        let menuOpen = false;
+                        menuBtn.addEventListener('click', () => {
+                            if (!menuOpen) {
+                                menuBtn.classList.add('open');
+                                menuOpen = true;
+                            } else {
+                                menuBtn.classList.remove('open');
+                                menuOpen = false;
+                            }
+                        });
 
                         //Footer Slide
 
-                          function footermove() {
-                             var c = document.getElementById("footer");
-                             if (c.style.height == "0px") {
-                                 c.style.height = "150px"                 
-                             } 
-                             else {
-                                 c.style.height = "0px";
+                        function footermove() {
+                            var c = document.getElementById("footer");
+                            if (c.style.height == "0px") {
+                                c.style.height = "150px"
+                            }
+                            else {
+                                c.style.height = "0px";
+                            }
+                        }
+
+
+
+
+                         let location = [];
+
+                         const addlocation = (ev) => {
+                           //  ev.preventDefault(); // to stop the form from submitting
+                             let location = {
+                                 id: Date.now(),
+                                 lat: document.getElementById("lat").value,
+                                 lon: document.getElementById("lon").vakue
                              }
-                             } 
+                             locations.push(location);
+                             document.forms[0].reset();  // to clear the form for the next entries
 
 
-                     </script>
+                         }
+
+                         // Svaing to localStorage
+                         document.addEventListener("DOMContentLoaded", () => {
+                             document.getElementById("submit")
+                         })
+
+
+
+                    </script>
 
         </form>
    

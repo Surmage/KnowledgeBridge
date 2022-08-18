@@ -8,17 +8,19 @@
 <head runat="server">
     <title>Knowledge Bridge</title>
 
-      <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+    <!-- Icons and fonts -->
+    <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+
      <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
 
+    <!-- Google fonts-->
     <style>
             @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Lexend+Deca:wght@600&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300&display=swap');
     </style>
-   
 
 </head>
  
@@ -105,10 +107,9 @@
                           <div class="swiper-wrapper">
                                 <div class="swiper-slide">
 
-                                
+                                <div id="map" class="map"></div>
 
-                                    <div class="map">
-
+                                  <!--  <div class="map">                                
                                         <iframe src="https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true" 
                                             allow="geolocation" 
                                             width="100%" 
@@ -118,8 +119,8 @@
                                             allowfullscreen>
                                         </iframe>
 
-                                       <!-- https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true -->
-                                        <!--
+                                       https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true 
+                                        
                                         <image class="map-img" src="\assets\V3png.png"  height="100%">
                                             <button class="area" id="ltu-a"></button>
                                             <button class="area" id="ltu-b1"></button>
@@ -128,8 +129,7 @@
                                             <button class="area" id="area-d"></button>
                                             <button class="area" id="area-e"></button>
                                         </image>   
-                                        -->
-                                    </div>
+                                    </div> -->
 
                                 </div>
 
@@ -182,11 +182,8 @@
                                         <asp:Button class="to-model" runat="server" Text="MODEL" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                     <div id="map" class="map">
 
-                                    </div>
-                                </div>
+
                         <%--        <div class="swiper-slide">Slide 5</div>
                                 <div class="swiper-slide">Slide 6</div>
                                 <div class="swiper-slide">Slide 7</div>
@@ -265,12 +262,10 @@
             </div>                 
               
 
-         </div>       
-    </form> 
-
-</body>
-    <!-- Initialize Swiper -->
-                     <script>
+         </div> 
+        
+         <!-- Initialize Swiper -->
+                 <script>
                          var swiper = new Swiper(".mySwiper", {
                              slidesPerView: 1,
                              spaceBetween: 30,
@@ -369,20 +364,36 @@
                              }
                          }
 
+
+                         // Map Controls
+
                          let mapOptions = {
                              center: [64.7453, 20.9571],
                              zoom: 16
                          }
                          let map = new L.map('map', mapOptions);
                          let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-                         map.addLayer(layer);
-                         let marker = new L.Marker([64.74466, 20.95575]);
-                         marker.addTo(map);
-                         let marker2 = new L.Marker([64.74434, 20.95660]);
-                         marker2.addTo(map);
-                         let marker3 = new L.Marker([64.74537, 20.95861]);
-                         marker3.addTo(map);
 
-                     </script>   
-   
+                        map.addLayer(layer);
+                        let marker = new L.Marker([64.74466, 20.95575]);
+
+                         marker.addTo(map);
+                         let marker2 = new L.Marker([64.74537, 20.95861]);
+
+                         marker2.addTo(map);
+                         let marker3 = new L.Marker(["lat", "lon"]);
+
+                         for (location of data) {
+                             marker2.addTo(map);
+                             const marker = L.marker([location.lat, location.lon]).addTo(map);
+                         }
+
+                 
+
+                 </script>   
+
+
+    </form> 
+
+</body>
 </html>

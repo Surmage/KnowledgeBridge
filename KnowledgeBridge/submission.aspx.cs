@@ -132,10 +132,14 @@ namespace KnowledgeBridge
                 }
             }
 
-            //Spara filen i databasen
-            //string strQuery = "insert into ModelInformation(name, contentType, data) values (@Name, @ContentType, @Data)";
+            // Coordinater
+                
 
-        }
+
+                //Spara filen i databasen
+                //string strQuery = "insert into ModelInformation(name, contentType, data) values (@Name, @ContentType, @Data)";
+
+            }
         private Boolean InsertUpdateData(SqlCommand cmd)
         {
             String strConnString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
