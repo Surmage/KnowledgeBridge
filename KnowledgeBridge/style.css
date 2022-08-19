@@ -60,13 +60,12 @@ body {
 
 
 .footer-btn {
-    position: absolute;
-    text-align: center;
+    position: fixed;
     right: 1%;
     padding: 6px 40px 7px 40px;
     border: 2px blue;
     border-radius: 20px 20px 0px 0px;
-    top: -45px;
+    bottom: 0;
     float: right;
     border: none;
     background: #22272e;

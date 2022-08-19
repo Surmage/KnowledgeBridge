@@ -15,6 +15,8 @@ namespace KnowledgeBridge
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            searchNav.Visible = false;
+            loginNav.Visible = false;
             if (Session["user"] != null)
             {
                 Response.Write(Session["user"].ToString());

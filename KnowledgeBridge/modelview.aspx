@@ -39,7 +39,7 @@
                 <nav class="navbar" id="menu">
                     <ul class="navbar-nav">
                         <!--Search button-->
-                        <li class="nav-item">
+                        <li class="nav-item" id="searchNav" runat="server">
                             <div class="search-box" id="search"> 
                                    <input type="text" class="search-input" placeholder="Type to search!" />
                                       <a class="search-btn" href="#">

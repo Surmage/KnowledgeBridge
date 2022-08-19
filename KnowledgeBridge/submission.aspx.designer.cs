@@ -15,6 +15,24 @@ namespace KnowledgeBridge
     {
 
         /// <summary>
+        /// searchNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchNav;
+
+        /// <summary>
+        /// loginNav control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginNav;
+
+        /// <summary>
         /// toSubmission control.
         /// </summary>
         /// <remarks>

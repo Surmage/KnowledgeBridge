@@ -17,23 +17,23 @@ namespace KnowledgeBridge
         {
             //testSwipe.Visible = false;
             //slider.FindControl("testSwipe").Visible = false;
-            string ID = slider.FindControl("testSwipe").ID;
-            
+            //string ID = slider.FindControl("testSwipe").ID;
+            searchNav.Visible = false;
             //slider.Visible = false;
-            //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/blackholegun');", true);
+            System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/blackholegun');", true);
             //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff2", "cloneStuff('assets/Allosaurus');", true);
             //System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "cloneStuff", "cloneStuff('assets/Dinosaur')", true);
 
             //string i = Request.QueryString["Num"];
-            //if (Session["user"] != null)
-            //{
-            //    Response.Write(Session["user"].ToString());
-            //    toSubmission.Visible = true;
-            //}
-            //else
-            //{
-            //    toSubmission.Visible = false;
-            //}
+            if (Session["user"] != null)
+            {
+                Response.Write(Session["user"].ToString());
+                toSubmission.Visible = true;
+            }
+            else
+            {
+                toSubmission.Visible = false;
+            }
             //if (!IsPostBack)
             //{
             //    if(i == null)

@@ -27,7 +27,7 @@
                 <nav class="navbar" id="menu">
                     <ul class="navbar-nav">
                         <!--Search button-->
-                        <li class="nav-item">
+                        <li class="nav-item" id="searchNav" runat="server">
                             <div class="search-box" id="search"> 
                                    <input type="text" class="search-input" placeholder="Type to search!" />
                                       <a class="search-btn" href="#">
@@ -43,7 +43,7 @@
                             </a>
                         </li>
                         <!--Login/Sign in button-->
-                        <li class="nav-item">
+                        <li class="nav-item" id="loginNav" runat="server">
                             <a class="nav-link" id="login-btn" onclick="login-btn()" href="#">
                               <i class="fa-solid fa-arrow-right-to-bracket"></i>
                             </a>
@@ -97,17 +97,17 @@
 			     </p>
 			
 		    <h3>3D Model</h3>
-			    <p>When uloading 3D models make sure that you have saved textures, animations etc into the file since there is 
-                    no way to add them afterwards. Also keep in mind to keep the file to a reasenable size as to low loading time. </p>
+			    <p>When uploading 3D models, make sure that you have saved any textures, animations, etc into the file since there is 
+                    no way to add them afterwards. Also keep in mind to keep the file to a reasonable size as to ensure low loading time. </p>
 			
 		    <h3>Pictures</h3>
-			    <p>Add pictures here of your work, yourself or anything that you feel is realevent to show the viwer. Keep in mind 
-                    that the image is for the most part going to be viwed though a mobile device, so try not to make any imortant details
-                    to smal.  </p>
+			    <p>Add pictures here of your work, yourself or anything that you feel is relevant to show the viewer. Keep in mind 
+                    that the image is for the most part going to be viewed through a mobile device, so try not to make any imortant details
+                    too small.  </p>
 			
 		    <h3>Additional Information</h3>
-			    <p>Type a discription or a short (80 words long) summary of the work you are presenting. Try to be as descriptive as 
-                    you can. You want the reader to get an understanging om what the displayed content is made for.
+			    <p>Type a description or a short (80 words long) summary of the work you are presenting. Try to be as descriptive as 
+                    you can. You want the reader to get an understanding of what the displayed content is made for.
 			    </p>
 
             
@@ -179,9 +179,9 @@
                 <%--<input class="submit-form-btn" type="submit"/>
 
             </div>--%>
-
+            
             <div class="footer-expand" id="footer">
-                <a class="footer-btn-v2" onclick="footermove()" ><i class="fa-solid fa-info fa-2x"></i></a>
+                <a class="footer-btn" onclick="footermove()" ><i class="fa-solid fa-info fa-2x"></i></a>
                     
                   <div class="footer-box">
                       <h2>CONTACT</h2>
@@ -354,25 +354,25 @@
 
 
 
-                         let location = [];
+                         //let location = [];
 
-                         const addlocation = (ev) => {
-                           //  ev.preventDefault(); // to stop the form from submitting
-                             let location = {
-                                 id: Date.now(),
-                                 lat: document.getElementById("lat").value,
-                                 lon: document.getElementById("lon").vakue
-                             }
-                             locations.push(location);
-                             document.forms[0].reset();  // to clear the form for the next entries
+                         //const addlocation = (ev) => {
+                         //  //  ev.preventDefault(); // to stop the form from submitting
+                         //    let location = {
+                         //        id: Date.now(),
+                         //        lat: document.getElementById("lat").value,
+                         //        lon: document.getElementById("lon").vakue
+                         //    }
+                         //    locations.push(location);
+                         //    document.forms[0].reset();  // to clear the form for the next entries
 
 
-                         }
+                         //}
 
-                         // Svaing to localStorage
-                         document.addEventListener("DOMContentLoaded", () => {
-                             document.getElementById("submit")
-                         })
+                         //// Svaing to localStorage
+                         //document.addEventListener("DOMContentLoaded", () => {
+                         //    document.getElementById("submit")
+                         //})
 
 
 
