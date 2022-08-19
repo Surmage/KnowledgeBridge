@@ -51,6 +51,24 @@ namespace KnowledgeBridge
         protected global::System.Web.UI.WebControls.FileUpload logo;
 
         /// <summary>
+        /// lat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lat;
+
+        /// <summary>
+        /// lon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lon;
+
+        /// <summary>
         /// project control.
         /// </summary>
         /// <remarks>

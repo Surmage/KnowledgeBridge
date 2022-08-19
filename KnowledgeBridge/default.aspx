@@ -8,19 +8,20 @@
 <head runat="server">
     <title>Knowledge Bridge</title>
 
-      <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
-   
+    <!-- Icons and fonts -->
+    <script src="https://kit.fontawesome.com/66889e6565.js" crossorigin="anonymous"></script>
+
      <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
     
 
+    <!-- Google fonts-->
     <style>
             @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@200&family=Lexend+Deca:wght@600&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300&display=swap');
     </style>
-   
 
 </head>
  
@@ -109,14 +110,31 @@
                           <div class="swiper-wrapper" id="slider" runat="server">
                                 <div class="swiper-slide">
 
-                                
 
-                                    <div id="map" class="map">
+                                <div id="map" class="map"></div>
 
-                                    </div>
-                                  
-                                
+                                  <!--  <div class="map">                                
+                                        <iframe src="https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true" 
+                                            allow="geolocation" 
+                                            width="100%" 
+                                            height="100%" 
+                                            frameborder="0" 
+                                            scrolling="no" 
+                                            allowfullscreen>
+                                        </iframe>
+
+                                       https://my.atlistmaps.com/map/484c91ad-9cf0-4369-ba0b-dd120935c97a?share=true 
                                         
+                                        <image class="map-img" src="\assets\V3png.png"  height="100%">
+                                            <button class="area" id="ltu-a"></button>
+                                            <button class="area" id="ltu-b1"></button>
+                                            <button class="area" id="ltu-b2"></button>
+                                            <button class="area" id="area-c"></button>
+                                            <button class="area" id="area-d"></button>
+                                            <button class="area" id="area-e"></button>
+                                        </image>   
+                                    </div> -->
+
                                 </div>
 
 
@@ -168,12 +186,7 @@
                                         <asp:Button class="to-model" runat="server" Text="MODEL" CommandArgument='5' CommandName="btn2Click" OnClick="btnView_Click" />
                                     </div>
                                 </div>
-                               
-                        <%--        <div class="swiper-slide">Slide 5</div>
-                                <div class="swiper-slide">Slide 6</div>
-                                <div class="swiper-slide">Slide 7</div>
-                                <div class="swiper-slide">Slide 8</div>
-                                <div class="swiper-slide">Slide 9</div>--%>
+                        
                           </div>
 
                   <footer class="scroll-btn">
