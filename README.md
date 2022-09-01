@@ -14,13 +14,13 @@ This web solution utilizes three web pages (aspx) with linked backend code (aspx
 ## Default page
 This page works as the index, the home page, the first page the user will load into. Functionalities on this page include: 
 #### Menu
-The menu contains access to several other functionalities. It is displayed on the top left of the page and can be toggled by left clicking. The toggle functionality works through A javacript script that has been sourced into the document. It controls the viewing of the slides and loops.
+The menu contains access to several other functionalities. It is displayed on the top left of the page and can be toggled by left clicking. The toggle functionality works through A javascript script that has been sourced into the document. It controls the viewing of the slides and loops.
 
 #### Search
 The search function takes a search string and runs through the database, looking for results. By starting a search query using sql, a connection is made to the database and matches are saved.  
 
 #### Login
-Login includes user registrations (sign up), and logging in. The login takes the the user inputs and, in the case of logging in, creates a sql query with the input. The registration validates the password and email to ensure they have appropriate length and characters before attempting to input them into the database. If successfully logged in, a session is started that lasts between pages.
+Login includes user registrations (sign up), and logging in. The login takes the user inputs and, in the case of logging in, creates a sql query with the input. The registration validates the password and email to ensure they have appropriate length and characters before attempting to input them into the database. If successfully logged in, a session is started that lasts between pages.
 
 #### Swipe
 Swiping uses a Javascript script. The functionality handles the amount of content shown.
@@ -37,7 +37,7 @@ The models are showcased as loaded content similar to the layout on the default 
 
 ## Submission Page
 #### Submission field
-The submission page contains instructions for submitting content. Further down there are several fields that the user can input files and text into for further details. Upon submitting, the inputed data is then attempted to be added to the database, and models should be saved to a folder here. 
+The submission page contains instructions for submitting content. Further down there are several fields that the user can input files and text into for further details. Upon submitting, the inputted data is then attempted to be added to the database, and models should be saved to a folder here. 
 
 #### Menu
 The menu here, similar to the model page, has fewer options. The functionality for the options remains the same. 
